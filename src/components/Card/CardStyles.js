@@ -18,11 +18,10 @@ export const Image = styled.img`
   object-fit: cover;
 `;
 
-export const ProfilePicture = styled.div`
+export const ProfilePicture = styled.img`
   width: 33px;
   height: 33px;
   border-radius: 50%;
-  background: lightgrey;
 `;
 
 export const Channel = styled.span`

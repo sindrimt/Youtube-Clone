@@ -7,13 +7,14 @@ import { Outer, ImageContainer, Image, ProfilePicture, Right, Left, InfoContaine
 import "./CardStyles";
 
 type Props = {
-  title?: String;
-  imageId: String | any;
-  channel: String;
-  imageRes: String;
+  title: string;
+  imageId: string | any;
+  channel: string;
+  imageRes: string;
+  profilePicture: string;
 };
 
-const Card: React.FC<Props> = ({ title, imageId, channel, imageRes }) => {
+const Card = ({ title, imageId, channel, imageRes, profilePicture }: Props) => {
   return (
     <>
       <Outer>
@@ -23,7 +24,7 @@ const Card: React.FC<Props> = ({ title, imageId, channel, imageRes }) => {
 
         <InfoContainer>
           <Left>
-            <ProfilePicture />
+            <ProfilePicture src={profilePicture} />
           </Left>
           <Right>
             {title} <br /> <Channel>{channel}</Channel>
