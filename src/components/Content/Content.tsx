@@ -26,8 +26,6 @@ const Content: React.FC = () => {
                            &part=snippet,id&maxResults=20&q=rick&order=viewCount`;
 
     axios(searchResults).then((res) => {
-      const posts: any = [];
-      const profilePictures: any = [];
       const videoTuple: any = new Map();
 
       const requests = res.data.items.map((video: any) => {
@@ -38,30 +36,33 @@ const Content: React.FC = () => {
         // Gives information about the channel
         const profileUrl = `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${video.snippet.channelId}&key=${API_KEY}`;
 
-        // Two return statements separated by comma
+        // Initiates videoTuple with videoID and an empty array
         videoTuple.set(video.id.videoId, []);
+
+        // Two return statements separated by comma
         return (
           axios.get(url).then((res) => {
-            posts.push(res.data);
             videoTuple.get(video.id.videoId)[0] = res.data;
-            // console.log("POST ADDED  " + video.id.videoId);
           }),
           axios.get(profileUrl).then((res) => {
-            // Pusher profile picture url til arrayen
-            profilePictures.push(res.data.items[0].snippet.thumbnails.default.url);
+            // Pusher profile picture url til arrayen i Mapet
             videoTuple.get(video.id.videoId)[1] = res.data.items[0].snippet.thumbnails.default.url;
-
-            //console.log("PROFILE PICTURE ADDED  " + video.id.videoId);
           })
         );
       });
 
       // When all request are finished
       return Promise.all(requests).then(() => {
+        const posts: any = [];
+        const profilePictures: any = [];
+
+        videoTuple.forEach((video: any) => {
+          posts.push(video[0]);
+          profilePictures.push(video[1]);
+        });
+
         setVideoResult(posts);
         setProfileThumbnails(profilePictures);
-        console.log(videoTuple);
-
         setIsLoading(false);
       });
     });
