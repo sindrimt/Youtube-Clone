@@ -2,21 +2,33 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-import { Outer, ImageContainer } from "./CardStyles";
+import { Outer, ImageContainer, Image, ProfilePicture, Right, Left, InfoContainer, Channel } from "./CardStyles";
+
+import "./CardStyles";
 
 type Props = {
-  title: string;
-  image: string | any;
+  title?: String;
+  imageId: String | any;
+  channel: String;
+  imageRes: String;
 };
 
-const Card: React.FC<Props> = ({ title, image }) => {
+const Card: React.FC<Props> = ({ title, imageId, channel, imageRes }) => {
   return (
     <>
       <Outer>
         <ImageContainer>
-          <img src={image.url} alt="Image" />
+          <Image src={`https://i.ytimg.com/vi/${imageId}/${imageRes}.jpg`} alt="Image" />
         </ImageContainer>
-        {title}
+
+        <InfoContainer>
+          <Left>
+            <ProfilePicture />
+          </Left>
+          <Right>
+            {title} <br /> <Channel>{channel}</Channel>
+          </Right>
+        </InfoContainer>
       </Outer>
     </>
   );

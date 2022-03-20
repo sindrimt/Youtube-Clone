@@ -4,5 +4,5 @@ export const Gap = styled.div`
   padding-top: 5rem;
 `;
 export const LeftGap = styled.div`
-  padding-left: 12%;
+  padding-left: 0;
 `;
