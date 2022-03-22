@@ -14,6 +14,10 @@ const Content: React.FC = () => {
 
   const API_KEY = "AIzaSyAA2UebdaJgjkACyxTuuCHEnOsywZ1sAWc";
 
+  //todo Denne linken gir de mest populære videoene:
+  // https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAA2UebdaJgjkACyxTuuCHEnOsywZ1sAWc&part=snippet,id&chart=mostPopular
+  //todo Sett denne som default
+
   useEffect(() => {
     fetchVideoData();
   }, []);

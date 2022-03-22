@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Sidebar = styled.div`
   height: 100vh;
-  width: 220px;
+  width: 230px;
   position: fixed;
   display: inline-block;
   top: 0;

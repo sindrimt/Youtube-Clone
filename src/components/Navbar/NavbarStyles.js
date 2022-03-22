@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NavContainer = styled.div`
   position: fixed;
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   background-color: rgba(33, 33, 33, 0.98);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
