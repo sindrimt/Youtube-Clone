@@ -18,9 +18,14 @@ const Content: React.FC = () => {
   // https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAA2UebdaJgjkACyxTuuCHEnOsywZ1sAWc&part=snippet,id&chart=mostPopular
   //todo Sett denne som default
 
-  useEffect(() => {
-    fetchVideoData();
-  }, []);
+  useEffect(
+    () => {
+      fetchVideoData();
+    },
+    [
+      /* // todo search term*/
+    ]
+  );
 
   const fetchVideoData = () => {
     // Gives basic information about the video
