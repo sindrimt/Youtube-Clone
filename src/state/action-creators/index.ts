@@ -1,27 +1,12 @@
 import { ActionType } from "../action-types";
 import { Dispatch } from "redux";
-import { Action } from "../actions/index";
+import { Action } from "../actions/index"; //Interface
 
-export const depositMonet = (amount: number) => {
+export const setSearchTerm = (url: string) => {
   return (dispatch: Dispatch<Action>) => {
     dispatch({
       type: ActionType.DEPOSIT,
-      payload: amount,
-    });
-  };
-};
-export const withdrawMonet = (amount: number) => {
-  return (dispatch: Dispatch<Action>) => {
-    dispatch({
-      type: ActionType.WITHDRAW,
-      payload: amount,
-    });
-  };
-};
-export const bankrupt = (amount: number) => {
-  return (dispatch: Dispatch<Action>) => {
-    dispatch({
-      type: ActionType.BANKRUPT,
+      payload: url,
     });
   };
 };

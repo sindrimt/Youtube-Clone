@@ -2,7 +2,19 @@ import React from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-import { Outer, ImageContainer, Image, ProfilePicture, Right, Left, InfoContainer, Channel } from "./CardStyles";
+import {
+  Outer,
+  ImageContainer,
+  Image,
+  ProfilePicture,
+  Right,
+  Left,
+  InfoContainer,
+  Channel,
+  Upload,
+  Views,
+  Title,
+} from "./CardStyles";
 
 import "./CardStyles";
 
@@ -27,7 +39,14 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture }: Props) => {
             <ProfilePicture src={profilePicture} />
           </Left>
           <Right>
-            {title} <br /> <Channel>{channel}</Channel>
+            <Title>
+              {title} <br />{" "}
+            </Title>
+            <Channel>
+              {channel} <br />
+              <Views>Sett 234k ganger</Views>
+              <Upload>for 7 timer siden</Upload>
+            </Channel>
           </Right>
         </InfoContainer>
       </Outer>

@@ -1,16 +1,12 @@
 import { ActionType } from "../action-types/index";
-import { Action } from "../actions";
+import { Action } from "../actions"; // Interface
 
-const initialState = 0;
+const initialState = "";
 
-const reducer = (state: number = initialState, action: Action): number => {
+const reducer = (state: string = initialState, action: Action): string => {
   switch (action.type) {
     case ActionType.DEPOSIT:
-      return state + action.payload;
-    case ActionType.WITHDRAW:
-      return state - action.payload;
-    case ActionType.BANKRUPT:
-      return 0;
+      return action.payload;
     default:
       return state;
   }

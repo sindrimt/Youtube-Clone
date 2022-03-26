@@ -13,8 +13,7 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  max-height: 180px;
-
+  height: 180px;
   object-fit: cover;
 `;
 
@@ -26,27 +25,51 @@ export const ProfilePicture = styled.img`
 
 export const Channel = styled.span`
   color: #aaaaaa;
-  font-size: 13px;
-  line-height: 27px;
+  position: relative;
+  line-height: 15px;
+  top: 5px;
+  font-size: 11.5px;
+`;
+export const Views = styled.span`
+  color: #aaaaaa;
+  position: relative;
+  font-size: 11px;
+  &:after {
+    content: "•";
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+`;
+
+export const Upload = styled.span`
+  color: #aaaaaa;
+  position: relative;
+  font-size: 11.5px;
+`;
+export const Title = styled.span`
+  line-height: 16px;
 `;
 
 export const Left = styled.div`
   grid-area: left;
-  padding: 0.25rem;
+  padding-top: 0.25rem;
+  padding-right: 0.25rem;
 `;
 
 export const Right = styled.div`
   grid-area: right;
-  padding: 0.25rem;
+  padding: 0.35rem;
 `;
 
 export const InfoContainer = styled.div`
-  font-size: 15px;
+  color: #ffffff;
+  font-size: 13px;
   font-weight: 100;
   display: grid;
   height: 200px;
-  grid-template-rows: 0.2fr 0.2fr 0.2fr;
+  grid-template-rows: auto;
   grid-template-areas:
     "left right "
     "left right ";
+  justify-content: start;
 `;
