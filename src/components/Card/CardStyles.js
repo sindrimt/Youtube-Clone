@@ -26,14 +26,14 @@ export const ProfilePicture = styled.img`
 export const Channel = styled.span`
   color: #aaaaaa;
   position: relative;
-  line-height: 15px;
+  line-height: 17px;
   top: 5px;
-  font-size: 11.5px;
+  font-size: 12px;
 `;
 export const Views = styled.span`
   color: #aaaaaa;
   position: relative;
-  font-size: 11px;
+  font-size: 12px;
   &:after {
     content: "•";
     margin-left: 5px;
@@ -44,9 +44,10 @@ export const Views = styled.span`
 export const Upload = styled.span`
   color: #aaaaaa;
   position: relative;
-  font-size: 11.5px;
+  font-size: 12px;
 `;
 export const Title = styled.span`
+  font-size: 13.5px;
   line-height: 16px;
 `;
 
@@ -58,7 +59,7 @@ export const Left = styled.div`
 
 export const Right = styled.div`
   grid-area: right;
-  padding: 0.35rem;
+  padding: 0.5rem;
 `;
 
 export const InfoContainer = styled.div`
