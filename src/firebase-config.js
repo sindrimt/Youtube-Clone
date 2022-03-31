@@ -27,8 +27,6 @@ provider.setCustomParameters({
   prompt: "select_account",
 });
 
-//provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
-
 export const signInWithGoogle = () => signInWithPopup(auth, provider);
 
 export const signOutWithGoogle = () => signOut(auth);
