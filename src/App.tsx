@@ -9,7 +9,6 @@ import "./styles/app.css";
 
 const App = () => {
   return (
-    //TODO Heller Lag content som en div med satt height og widt
     <>
       <Navbar />
       <SideContainer />

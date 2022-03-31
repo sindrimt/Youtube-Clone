@@ -7,24 +7,28 @@ import { State } from "../../state/index";
 
 const Content = () => {
   const url = useSelector((state: State) => state.bank);
-  const [showSearch, setShowSearch] = useState(false);
-  //console.log(url);
+  const [showSearch, setShowSearch] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect((): void => {
-    console.log(url);
-
+    setIsLoading(true);
     if (url === "") {
       setShowSearch(false);
+      setIsLoading(false);
     } else {
       setShowSearch(true);
+      setIsLoading(false);
     }
   }, [url]);
 
-  if (showSearch) {
-    return <ContentSearch searchTerm={url} />;
-  } else {
-    return <ContentDefault />;
+  if (isLoading) {
+    return (
+      <section className="outer">
+        <div className="loading">Loading...</div>
+      </section>
+    );
   }
+  return <>{showSearch ? <ContentSearch searchTerm={url} /> : <ContentDefault />}</>;
 };
 
 export default Content;

@@ -7,39 +7,40 @@ import axios from "axios";
 
 import "./content.css";
 
+import { useSelector } from "react-redux";
+import { State } from "../../state/index";
+
 interface ContentProps {
   searchTerm?: string;
 }
 
-const Content: React.FC<ContentProps> = ({ searchTerm = "one piece" }) => {
+const Content: React.FC<ContentProps> = ({ searchTerm }) => {
   const [isLoading, setIsLoading] = useState<Boolean>(true);
-  const [videoResult, setVideoResult] = useState<any[]>();
+  const [videoResult, setVideoResult] = useState<any[]>([]);
   const [profileThumbnails, setProfileThumbnails] = useState<any[]>([]);
 
   const API_KEY = "AIzaSyA2jqu8DsVe541pB-A3pNX0Hg3gIDMpnQs";
+  const url = useSelector((state: State) => state.bank);
 
   //todo Denne linken gir de mest populære videoene:
   // https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAA2UebdaJgjkACyxTuuCHEnOsywZ1sAWc&part=snippet,id&chart=mostPopular
   //todo Sett denne som default
 
-  useEffect(
-    () => {
-      fetchVideoData();
-    },
-    [
-      /* // todo search term*/
-    ]
-  );
+  useEffect(() => {
+    setIsLoading(true);
+    fetchVideoData();
+    //TODO JA URL ER KNUTTET MED USER DETTE ER NOE REDUC GREIER SE PÅ SENERE
+  }, [url]);
 
   const fetchVideoData = () => {
     // Gives basic information about the video
     const searchResults = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}
-                           &part=snippet,id&maxResults=20&q=${searchTerm}&order=viewCount`;
+                           &part=snippet,id&maxResults=20&q=${searchTerm}&order=viewCount&type=video`;
 
     axios(searchResults).then((res) => {
       const videoTuple: any = new Map();
 
-      const requests = res.data.items.map((video: any) => {
+      const requests = res.data.items?.map((video: any) => {
         // Gives a more detailed information about the video
         const url = `https://www.googleapis.com/youtube/v3/videos?id=${video.id.videoId}&key=${API_KEY}
                      &part=snippet,contentDetails,statistics,status`;
@@ -78,7 +79,6 @@ const Content: React.FC<ContentProps> = ({ searchTerm = "one piece" }) => {
           posts.push(video[0]);
           profilePictures.push(video[1]);
         });
-
         setVideoResult(posts);
         setProfileThumbnails(profilePictures);
         setIsLoading(false);

@@ -10,7 +10,7 @@ import "./content.css";
 import { useSelector } from "react-redux";
 import { State } from "../../state/index";
 
-const Content: React.FC = () => {
+const ContentDefault: React.FC = () => {
   const [isLoading, setIsLoading] = useState<Boolean>(true);
   const [videoResult, setVideoResult] = useState<any[]>();
   const [profileThumbnails, setProfileThumbnails] = useState<any[]>([]);
@@ -19,18 +19,9 @@ const Content: React.FC = () => {
 
   const amount = useSelector((state: State) => state.bank);
 
-  //todo Denne linken gir de mest populære videoene:
-  // https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAA2UebdaJgjkACyxTuuCHEnOsywZ1sAWc&part=snippet,id&chart=mostPopular
-  //todo Sett denne som default
-
-  useEffect(
-    () => {
-      fetchVideoData();
-    },
-    [
-      /* // todo search term*/
-    ]
-  );
+  useEffect(() => {
+    fetchVideoData();
+  }, []);
 
   const fetchVideoData = () => {
     // Gives basic information about the video
@@ -91,7 +82,6 @@ const Content: React.FC = () => {
         setVideoResult(posts);
         setProfileThumbnails(profilePictures);
         setIsLoading(false);
-        //console.log(videoTuple);
       });
     });
   };
@@ -131,4 +121,4 @@ const Content: React.FC = () => {
   );
 };
 
-export default Content;
+export default ContentDefault;

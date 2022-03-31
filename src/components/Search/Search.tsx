@@ -20,6 +20,10 @@ const Search = () => {
     setSearchTerm(searchInput);
   };
 
+  useEffect(() => {
+    console.log(url);
+  }, [handleSubmit]);
+
   return (
     <>
       <div className="outer_search_box">

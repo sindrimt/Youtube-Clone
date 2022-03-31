@@ -10,3 +10,11 @@ export const setSearchTerm = (url: string) => {
     });
   };
 };
+export const saveUser = (user: any) => {
+  return (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.SAVE_USER,
+      payload: user,
+    });
+  };
+};
