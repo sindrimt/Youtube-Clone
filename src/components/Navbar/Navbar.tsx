@@ -10,6 +10,8 @@ import {
   getGoogleRedirectResults,
 } from "../../firebase-config";
 
+import axios from "axios";
+
 import "./navbar.css";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -52,6 +54,20 @@ const Navbar = () => {
         console.log(error);
       });
   };
+
+  const handleGetUser = () => {
+    axios
+      .get("http://localhost:8000/api")
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
+  };
+  const handlePostUser = () => {
+    axios
+      .post("http://localhost:8000/api", { title: "Dette er en tittel", message: "Jeg er en message" })
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <NavContainer>
       <Div2>
@@ -61,6 +77,8 @@ const Navbar = () => {
         <button onClick={handleLogin}>Sign In</button>
         <button onClick={handleLogout}>Sign Out</button>
         <button onClick={() => console.log(user)}>Check state</button>
+        <button onClick={handleGetUser}>Get User</button>
+        <button onClick={handlePostUser}>Post User</button>
       </Div3>
     </NavContainer>
   );
