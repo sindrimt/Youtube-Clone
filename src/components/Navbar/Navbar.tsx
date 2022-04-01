@@ -9,6 +9,7 @@ import {
   signInWithGoogleRedirect,
   getGoogleRedirectResults,
 } from "../../firebase-config";
+import { getUser, postUser } from "../../axios/axios";
 
 import axios from "axios";
 
@@ -32,7 +33,10 @@ const Navbar = () => {
   // Gets results (user data) from sign in with redirect when finished
   useEffect(() => {
     getGoogleRedirectResults()
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        console.log("Loaded sign in data");
+      })
       .catch((error) => console.log(error));
   }, [done]);
 
@@ -56,16 +60,10 @@ const Navbar = () => {
   };
 
   const handleGetUser = () => {
-    axios
-      .get("http://localhost:8000/api")
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+    getUser();
   };
   const handlePostUser = () => {
-    axios
-      .post("http://localhost:8000/api", { title: "Dette er en tittel", message: "Jeg er en message" })
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+    postUser({ username: "gamer", email: "yoyoyo", profilePic: "dette er url.com" });
   };
 
   return (

@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 
-import postRoutes from "./routes/posts.js";
+import userRoutes from "./routes/users.js";
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(cors());
 
 // prefixes api with /api
 
-app.use("/api", postRoutes);
+app.use("/api", userRoutes);
 
 const CONNECTION_URL =
   "mongodb+srv://sindrimt:SvampeBob7@cluster0.9theg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
