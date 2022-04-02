@@ -1,10 +1,9 @@
 import { combineReducers } from "redux";
-import bankReducer from "./bankReducer";
 
-const reducers = combineReducers({
-  bank: bankReducer,
-});
+import { users, url } from "./users";
 
-export default reducers;
+// Combines the reducers
+export default combineReducers({ users, url });
 
-export type State = ReturnType<typeof reducers>;
+// Exports the combined reducers with type combineReducers or any
+export type State = ReturnType<typeof combineReducers | any>;
