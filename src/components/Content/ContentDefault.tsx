@@ -7,9 +7,6 @@ import axios from "axios";
 
 import "./content.css";
 
-import { useSelector } from "react-redux";
-import { State } from "../../state/index";
-
 const ContentDefault: React.FC = () => {
   const [isLoading, setIsLoading] = useState<Boolean>(true);
   const [videoResult, setVideoResult] = useState<any[]>();
@@ -17,7 +14,7 @@ const ContentDefault: React.FC = () => {
 
   const API_KEY = "AIzaSyA2jqu8DsVe541pB-A3pNX0Hg3gIDMpnQs";
 
-  const amount = useSelector((state: State) => state.bank);
+  //const amount = useSelector((state: State) => state.bank);
 
   useEffect(() => {
     fetchVideoData();

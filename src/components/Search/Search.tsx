@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from "react";
-
 import "./search.css";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMicrophone } from "react-icons/fa";
-
+import { changeUrl } from "../../state/actions/users";
 import { useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreators, State } from "../../state/index";
+import { State } from "../../state/reducers";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState<string>("");
+  const [update, setUpdate] = useState<boolean>(false);
+
   const dispatch = useDispatch();
 
-  const { setSearchTerm } = bindActionCreators(actionCreators, dispatch);
-  const url = useSelector((state: State) => state.bank);
+  const url = useSelector((state: State) => state.url);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSearchTerm(searchInput);
+    dispatch(changeUrl(searchInput));
+
+    // Oppdaterer url etter state er satt
+    setUpdate(!update);
   };
 
+  // Gjør noe med url her
   useEffect(() => {
     console.log(url);
-  }, [handleSubmit]);
+  }, [update]);
 
   return (
     <>

@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 
 import Card from "../Card/Card";
 import { GridContainer, Outer } from "./ContentStyles";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "../../state/reducers";
 
 import axios from "axios";
 
 import "./content.css";
-
-import { useSelector } from "react-redux";
-import { State } from "../../state/index";
 
 interface ContentProps {
   searchTerm?: string;
@@ -20,7 +19,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
   const [profileThumbnails, setProfileThumbnails] = useState<any[]>([]);
 
   const API_KEY = "AIzaSyA2jqu8DsVe541pB-A3pNX0Hg3gIDMpnQs";
-  const url = useSelector((state: State) => state.bank);
+  const url = useSelector((state: State) => state.url);
 
   //todo Denne linken gir de mest populære videoene:
   // https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAA2UebdaJgjkACyxTuuCHEnOsywZ1sAWc&part=snippet,id&chart=mostPopular

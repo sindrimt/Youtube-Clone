@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ContentSearch from "./ContentSearch";
 import ContentDefault from "./ContentDefault";
-
-import { useSelector } from "react-redux";
-import { State } from "../../state/index";
+import { useDispatch, useSelector } from "react-redux";
+import { State } from "../../state/reducers";
 
 const Content = () => {
-  const url = useSelector((state: State) => state.bank);
+  //const url = useSelector((state: State) => state.bank);
+  const url = useSelector((state: State) => state.url);
+
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
