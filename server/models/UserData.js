@@ -9,6 +9,7 @@ const user = mongoose.Schema({
   // Tar deg tilbake til forrige search selv om man redirecter eller signer inn eller no
   // Trenger bare å gjøre dette når brukeren ikke er inne på default
   //
+  lastVisited: String,
 });
 
 // Transforms the Schema into a model
