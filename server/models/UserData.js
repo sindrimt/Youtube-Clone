@@ -5,6 +5,7 @@ const user = mongoose.Schema({
   email: String,
   profilePic: String,
   // todo ===========
+  //
   // Last visited youtube search
   // Tar deg tilbake til forrige search selv om man redirecter eller signer inn eller no
   // Trenger bare å gjøre dette når brukeren ikke er inne på default
