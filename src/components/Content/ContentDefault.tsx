@@ -15,8 +15,8 @@ const ContentDefault: React.FC = () => {
   const API_KEY = "AIzaSyA2jqu8DsVe541pB-A3pNX0Hg3gIDMpnQs";
 
   //const amount = useSelector((state: State) => state.bank);
-
   useEffect(() => {
+    setIsLoading(true);
     fetchVideoData();
   }, []);
 
@@ -90,12 +90,25 @@ const ContentDefault: React.FC = () => {
       </section>
     );
   }
+  // Filtrer ut alle undefined objects
+  let filteredArray: Array<any> = [];
+  const filtered = videoResult?.filter((element) => {
+    if (element === undefined) {
+      return false;
+    }
+    filteredArray.push(element);
+  });
 
   return (
     <>
       <Outer>
         <GridContainer>
-          {videoResult?.map(({ items }, index) => {
+          {console.log("Videoresult map here")}
+          {console.log(videoResult)}
+          {console.log("Filtered array")}
+          {console.log(filteredArray)}
+
+          {filteredArray?.map(({ items }, index) => {
             // Checks if a maxres image exists
             // If it does: set maxres, else set highres
             let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "hqdefault";

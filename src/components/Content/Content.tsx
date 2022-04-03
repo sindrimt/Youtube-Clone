@@ -3,13 +3,19 @@ import ContentSearch from "./ContentSearch";
 import ContentDefault from "./ContentDefault";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../state/reducers";
+import { changeUrl } from "../../state/actions/users";
 
 const Content = () => {
-  //const url = useSelector((state: State) => state.bank);
+  const dispatch = useDispatch();
+
   const url = useSelector((state: State) => state.url);
 
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    dispatch(changeUrl(""));
+  }, [dispatch]);
 
   useEffect((): void => {
     setIsLoading(true);

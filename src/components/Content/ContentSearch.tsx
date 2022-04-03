@@ -93,11 +93,20 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
     );
   }
 
+  // Filtrer ut alle undefined objects
+  let filteredArray: Array<any> = [];
+  const filtered = videoResult?.filter((element) => {
+    if (element === undefined) {
+      return false;
+    }
+    filteredArray.push(element);
+  });
+
   return (
     <>
       <Outer>
         <GridContainer>
-          {videoResult?.map(({ items }, index) => {
+          {filteredArray?.map(({ items }, index) => {
             // Checks if a maxres image exists
             // If it does: set maxres, else set highres
             let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "hqdefault";
