@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:8000/api/user";
+const apiUrl = "http://localhost:8000/users";
 
 export const getUser = () => axios.get(apiUrl);
 
