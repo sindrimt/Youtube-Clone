@@ -23,9 +23,9 @@ const Search = () => {
   };
 
   // Gjør noe med url her
-  useEffect(() => {
+  /*  useEffect(() => {
     console.log(url);
-  }, [update]);
+  }, [update]); */
 
   return (
     <>

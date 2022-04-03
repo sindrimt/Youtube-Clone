@@ -5,7 +5,7 @@ import Content from "./components/Content/Content";
 
 import { Gap, LeftGap } from "./styles/GloabalStyles";
 import { useDispatch } from "react-redux";
-import { getUsers } from "./state/actions/users";
+import { getUsers, changeUrl } from "./state/actions/users";
 
 import "./styles/app.css";
 
