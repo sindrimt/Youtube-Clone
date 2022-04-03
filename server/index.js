@@ -13,7 +13,11 @@ app.use(cors());
 
 // prefixes api with /api
 
-app.use("/api", userRoutes);
+app.use("/users", userRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Home page");
+});
 
 const CONNECTION_URL =
   "mongodb+srv://sindrimt:SvampeBob7@cluster0.9theg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
