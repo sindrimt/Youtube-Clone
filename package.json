@@ -36,8 +36,7 @@
     "start": "serve -s build",
     "build": "react-scripts build",
     "api": "cd server && nodemon index.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run api\" \"npm run frontend\"",
-    "heroku-postbuild": "npm install && npm run build"
+    "heroku-postbuild": "\"npm run api\" && npm run build"
   },
   "eslintConfig": {
     "extends": [
