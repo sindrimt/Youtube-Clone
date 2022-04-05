@@ -29,11 +29,11 @@ app.get("/api", (req, res) => {
   res.send("Api home page");
 });
 
-app.use(express.static(path.join(__dirname, "../build")));
-
-app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "../", "build", "index.html")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../build"));
+}
 
 mongoose
-  .connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server running on ${PORT}`)))
   .catch((error) => console.log(error.message));
