@@ -11,7 +11,7 @@ import userRoutes from "./routes/users.js";
 
 const app = express();
 
-const PORT = process.env.PORT || 8000;
+//const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
@@ -45,5 +45,5 @@ app.get("/", function (req, res) {
 
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => app.listen(PORT, () => console.log(`Server running on ${PORT}`)))
+  .then(() => app.listen(process.env.PORT || 8000, () => console.log(`Server running on ${PORT}`)))
   .catch((error) => console.log(error.message));
