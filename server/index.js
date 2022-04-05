@@ -28,6 +28,14 @@ app.get("/api", (req, res) => {
   res.send("Api home page");
 });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../src/build")));
+
+  app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "../", "src", "build", "index.html")));
+} else {
+  app.get("/", (req, res) => res.send("pls set to production"));
+}
+
 mongoose
   .connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server running on ${PORT}`)))
