@@ -33,11 +33,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node server/index.js",
-    "server": "nodemon server/index.js",
+    "start": "concurrently \" npm start\" \"npm run server/index.js\"",
+    "server": "concurrently \" npm start\" \"npm run server/index.js\"",
     "client": "npm start --prefix",
     "dev": "concurrently \"npm run server/index.js \" \"npm run\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install && npm run build"
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": [
