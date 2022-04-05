@@ -20,18 +20,22 @@ app.use(cors());
 // prefixes api with /api
 import { createProxyMiddleware } from "http-proxy-middleware";
 
-app.use(createProxyMiddleware("/api/**", { target: "http://localhost:8000" }));
-app.use(createProxyMiddleware("/otherApi/**", { target: "http://localhost:8000" }));
-
+app.use(
+  "/api",
+  createProxyMiddleware({
+    target: "http://localhost:8000",
+    changeOrigin: true,
+  })
+);
 app.use("/api", userRoutes);
 
-app.get("/", (req, res) => {
+/* app.get("/", (req, res) => {
   res.send("Home page");
-});
+}); */
 
-app.get("/api", (req, res) => {
+/* app.get("/api", (req, res) => {
   res.send("Api home page");
-});
+}); */
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("../build"));
