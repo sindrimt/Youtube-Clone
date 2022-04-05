@@ -38,7 +38,7 @@
     "server": "node server/index.js",
     "client": "npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm install && npm run build && npm run server"
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": [
