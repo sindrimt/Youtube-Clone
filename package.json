@@ -39,7 +39,7 @@
     "start-server": "node server/index.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build npm run start-server"
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": [
