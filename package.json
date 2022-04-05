@@ -36,9 +36,9 @@
   "scripts": {
     "start": "node server/index.js",
     "server": "nodemon server/index.js",
-    "client": "npm start --prefix src",
+    "client": "npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix src && npm run build --prefix src"
+    "heroku-postbuild": "npm install && npm run build"
   },
   "eslintConfig": {
     "extends": [
