@@ -35,7 +35,7 @@
   "scripts": {
     "start": "serve -s build",
     "build": "react-scripts build",
-    "api": "cd server && nodemon index.js",
+    "api": "cd server && node index.js",
     "heroku-postbuild": "npm run api && npm run build"
   },
   "eslintConfig": {
