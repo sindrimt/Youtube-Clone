@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Kjører verbene. Logikken ligger i controllers filen (users)
 
-router.get("/", getUser);
-router.post("/", createUser);
+router.get("/users", getUser);
+router.post("/users", createUser);
 
 export default router;

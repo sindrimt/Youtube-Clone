@@ -18,10 +18,14 @@ app.use(cors());
 
 // prefixes api with /api
 
-app.use("/users", userRoutes);
+app.use("/api", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("Home page");
+});
+
+app.get("/api", (req, res) => {
+  res.send("Api home page");
 });
 
 mongoose
