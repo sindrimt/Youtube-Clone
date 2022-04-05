@@ -36,7 +36,7 @@
     "start": "serve -s build",
     "build": "react-scripts build",
     "api": "cd server && node index.js",
-    "heroku-postbuild": "npm run build && npm run api"
+    "heroku-postbuild": "npm run start && npm run api"
   },
   "eslintConfig": {
     "extends": [
