@@ -11,3 +11,8 @@ router.get("/users", getUser);
 router.post("/users", createUser);
 
 export default router;
+
+/* "start": "serve -s build",
+    "build": "react-scripts build",
+    "api": "cd server && node index.js",
+    "heroku-postbuild": "npm run start && npm run api" */
