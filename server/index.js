@@ -18,6 +18,10 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 // prefixes api with /api
+import { createProxyMiddleware } from "http-proxy-middleware";
+
+app.use(createProxyMiddleware("/api/**", { target: "http://localhost:8000" }));
+app.use(createProxyMiddleware("/otherApi/**", { target: "http://localhost:8000" }));
 
 app.use("/api", userRoutes);
 
