@@ -21,13 +21,13 @@ app.use(cors());
 // prefixes api with /api
 import { createProxyMiddleware } from "http-proxy-middleware";
 
-/* app.use(
+app.use(
   "/api",
   createProxyMiddleware({
     target: "http://localhost:8000",
     changeOrigin: true,
   })
-); */
+);
 
 app.use("/api", userRoutes);
 
