@@ -18,24 +18,27 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
 // prefixes api with /api
-import { createProxyMiddleware } from "http-proxy-middleware";
+//import { createProxyMiddleware } from "http-proxy-middleware";
 
-app.use(
+/* app.use(
   "/api",
   createProxyMiddleware({
     target: "http://localhost:8000",
     changeOrigin: true,
   })
-);
+); */
+
 app.use("/api", userRoutes);
 
-/* app.get("/", (req, res) => {
+// Default landing page for /
+app.get("/", (req, res) => {
   res.send("Home page");
-}); */
+});
 
-/* app.get("/api", (req, res) => {
+// Default landing page for /api
+app.get("/api", (req, res) => {
   res.send("Api home page");
-}); */
+});
 
 app.use(express.static(path.join(__dirname, "build")));
 
