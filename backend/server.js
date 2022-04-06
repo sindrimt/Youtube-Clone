@@ -50,7 +50,6 @@ if (process.env.NODE_ENV === "production") {
   app.get("/", (req, res) => res.send("Please set to production"));
 }
 
-
 mongoose
   .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(process.env.PORT || 8000, () => console.log(`Server running on ${process.env.PORT || 8000}`)))
