@@ -1,4 +1,4 @@
-import * as api from "../../axios/axios";
+import * as api from "../../axios/axios.js";
 
 // Action creators
 
