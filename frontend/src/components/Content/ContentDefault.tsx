@@ -103,11 +103,6 @@ const ContentDefault: React.FC = () => {
     <>
       <Outer>
         <GridContainer>
-          {console.log("Videoresult map here")}
-          {console.log(videoResult)}
-          {console.log("Filtered array")}
-          {console.log(filteredArray)}
-
           {filteredArray?.map(({ items }, index) => {
             // Checks if a maxres image exists
             // If it does: set maxres, else set highres
