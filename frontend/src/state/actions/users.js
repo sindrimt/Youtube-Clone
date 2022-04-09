@@ -28,3 +28,11 @@ export const changeUrl = (url) => async (dispatch) => {
     console.log(error.message);
   }
 };
+export const setUser = (user) => async (dispatch) => {
+  try {
+    const action = { type: "CHANGE_USER", payload: user };
+    dispatch(action);
+  } catch (error) {
+    console.log(error.message);
+  }
+};

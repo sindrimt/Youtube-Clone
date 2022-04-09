@@ -21,3 +21,14 @@ export const url = (url = "", action) => {
       return url;
   }
 };
+
+export const user = (user = {}, action) => {
+  switch (action.type) {
+    case "GET_USER":
+      return action.payload;
+    case "CHANGE_USER":
+      return action.payload;
+    default:
+      return user;
+  }
+};
