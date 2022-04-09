@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import SideContainer from "./components/SideContainer/SideContainer";
 import Content from "./components/Content/Content";
 
-import { Gap, LeftGap } from "./styles/GloabalStyles";
+import { Gap } from "./styles/GloabalStyles";
 import { useDispatch } from "react-redux";
 import { getUsers, changeUrl } from "./state/actions/users";
 
@@ -20,11 +20,9 @@ const App = () => {
     <>
       <Navbar />
       <SideContainer />
-      <LeftGap>
-        <Gap>
-          <Content />
-        </Gap>
-      </LeftGap>
+      <Gap>
+        <Content />
+      </Gap>
     </>
   );
 };
