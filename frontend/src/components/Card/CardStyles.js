@@ -75,3 +75,20 @@ export const InfoContainer = styled.div`
     "left right ";
   justify-content: start;
 `;
+
+export const Duration = styled.div`
+  display: inline-block;
+  align-items: center;
+  border-radius: 2px;
+  align-items: center;
+  font-weight: bold;
+  justify-content: center;
+  position: relative;
+  font-size: 10px;
+  padding: 2px 3px;
+  height: 15px;
+  background-color: rgba(0, 0, 0, 0.7);
+  bottom: 25px;
+  left: 88%;
+  color: white;
+`;

@@ -14,6 +14,7 @@ import {
   Upload,
   Views,
   Title,
+  Duration,
 } from "./CardStyles";
 
 import "./CardStyles";
@@ -24,14 +25,18 @@ type Props = {
   channel: string;
   imageRes: string;
   profilePicture: string;
+  time: number;
+  views: number;
+  duration: string;
 };
 
-const Card = ({ title, imageId, channel, imageRes, profilePicture }: Props) => {
+const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, duration }: Props) => {
   return (
     <>
       <Outer>
         <ImageContainer>
           <Image src={`https://i.ytimg.com/vi/${imageId}/${imageRes}.jpg`} alt="Image" />
+          <Duration>{duration}</Duration>
         </ImageContainer>
 
         <InfoContainer>
@@ -44,8 +49,8 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture }: Props) => {
             </Title>
             <Channel>
               {channel} <br />
-              <Views>Sett 234k ganger</Views>
-              <Upload>for 7 timer siden</Upload>
+              <Views>Sett {views} ganger</Views>
+              <Upload>for {time} timer siden</Upload>
             </Channel>
           </Right>
         </InfoContainer>
