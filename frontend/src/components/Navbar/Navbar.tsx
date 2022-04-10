@@ -63,6 +63,7 @@ const Navbar = () => {
   const handleLogout = () => {
     signOutWithGoogle()
       .then(() => {
+        dispatch(setUser({}));
         console.log("logged out");
         //saveUser(null);
       })
@@ -89,8 +90,8 @@ const Navbar = () => {
       </Div2>
       <Div3>
         <button onClick={handleState}>Check state</button>
-        {/* <button onClick={handleLogin}>Sign In</button>
         <button onClick={handleLogout}>Sign Out</button>
+        {/* <button onClick={handleLogin}>Sign In</button>
         <button onClick={handleGetUser}>Get User</button>
         <button onClick={handlePostUser}>Post User</button> */}
 
