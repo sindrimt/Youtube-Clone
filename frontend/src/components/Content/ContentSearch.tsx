@@ -112,15 +112,30 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
             let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "hqdefault";
             let pp: string = profileThumbnails[index];
 
-            let formattedTime = items[0].contentDetails.duration;
+            let videoTime = items[0].contentDetails.duration;
 
-            const splitted = formattedTime.replace("PT", "").replace("S", "").split("M");
+            const convertTime = (dur: string | any) => {
+              let match = dur.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
 
-            if (splitted[1] < 10) {
-              splitted[1] = `0${splitted[1]}`;
-            }
+              match = match.slice(1).map(function (x: any) {
+                if (x != null) {
+                  return x.replace(/\D/, "");
+                }
+              });
 
-            let duration = `${splitted[0]}:${splitted[1]}`;
+              const hours = parseInt(match[0]) || 0;
+              const minutes = parseInt(match[1]) || 0;
+              const seconds = parseInt(match[2]) || 0;
+
+              const secs = hours * 3600 + minutes * 60 + seconds;
+
+              if (secs > 3600) {
+                return new Date(secs * 1000).toISOString().substr(11, 8);
+              }
+              return new Date(secs * 1000).toISOString().substr(14, 5);
+            };
+
+            const duration = convertTime(videoTime);
 
             return (
               <Card
