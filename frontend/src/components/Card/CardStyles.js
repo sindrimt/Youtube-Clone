@@ -2,19 +2,19 @@ import styled from "styled-components";
 
 export const Outer = styled.div`
   z-index: -10;
-
   color: #fefefe;
   background-color: none;
   height: 300px;
 `;
 
 export const ImageContainer = styled.div`
+  position: relative;
   width: 100%;
 `;
 
 export const Image = styled.img`
   width: 100%;
-  height: 150px;
+  height: 158px;
   object-fit: cover;
 `;
 
@@ -77,18 +77,19 @@ export const InfoContainer = styled.div`
 `;
 
 export const Duration = styled.div`
+  z-index: 100;
   display: inline-block;
+  position: absolute;
   align-items: center;
-  border-radius: 2px;
+  border-radius: 1.5px;
   align-items: center;
   font-weight: bold;
   justify-content: center;
-  position: relative;
   font-size: 10px;
   padding: 2px 3px;
   height: 15px;
   background-color: rgba(0, 0, 0, 0.7);
-  bottom: 25px;
-  left: 88%;
+  right: 3px;
+  bottom: 7px;
   color: white;
 `;
