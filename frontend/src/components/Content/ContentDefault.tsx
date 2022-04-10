@@ -112,9 +112,12 @@ const ContentDefault: React.FC = () => {
             let videoTime = items[0].contentDetails.duration;
 
             const convertTime = (dur: string | any) => {
+              if (dur.includes("D")) {
+                return "> 24h";
+              }
               let match = dur.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
 
-              match = match.slice(1).map(function (x: any) {
+              match = match?.slice(1).map(function (x: any) {
                 if (x != null) {
                   return x.replace(/\D/, "");
                 }
