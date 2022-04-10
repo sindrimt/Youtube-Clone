@@ -112,8 +112,10 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
             let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "hqdefault";
             let pp: string = profileThumbnails[index];
 
+            // Youtube videotime duration weird ass format
             let videoTime = items[0].contentDetails.duration;
 
+            // Converts youtube weird format to good format
             const convertTime = (dur: string | any) => {
               let match = dur.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
 
@@ -129,8 +131,11 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
 
               const secs = hours * 3600 + minutes * 60 + seconds;
 
-              if (secs > 3600) {
-                return new Date(secs * 1000).toISOString().substr(11, 8);
+              if (secs >= 3600) {
+                let shortTime = new Date(secs * 1000).toISOString().substr(11, 8);
+                let shortTimeSplit = shortTime.split(":");
+
+                return `${shortTimeSplit[0].substring(1)}:${shortTimeSplit[1]}:${shortTimeSplit[2]}`;
               } else {
                 let shortTime = new Date(secs * 1000).toISOString().substr(14, 5);
                 let shortTimeSplit = shortTime.split(":");
@@ -153,7 +158,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
                 imageRes={imageRes}
                 channel={items[0].snippet.channelTitle}
                 profilePicture={pp}
-                views={20}
+                views={items[0].statistics.viewCount}
                 time={7}
                 duration={duration}
               />

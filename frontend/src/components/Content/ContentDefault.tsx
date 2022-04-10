@@ -126,8 +126,11 @@ const ContentDefault: React.FC = () => {
 
               const secs = hours * 3600 + minutes * 60 + seconds;
 
-              if (secs > 3600) {
-                return new Date(secs * 1000).toISOString().substr(11, 8);
+              if (secs >= 3600) {
+                let shortTime = new Date(secs * 1000).toISOString().substr(11, 8);
+                let shortTimeSplit = shortTime.split(":");
+
+                return `${shortTimeSplit[0].substring(1)}:${shortTimeSplit[1]}:${shortTimeSplit[2]}`;
               } else {
                 let shortTime = new Date(secs * 1000).toISOString().substr(14, 5);
                 let shortTimeSplit = shortTime.split(":");
