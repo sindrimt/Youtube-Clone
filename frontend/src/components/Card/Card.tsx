@@ -27,7 +27,7 @@ type Props = {
   profilePicture: string;
   time: number;
   views: number;
-  duration: string;
+  duration: any;
 };
 
 const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, duration }: Props) => {

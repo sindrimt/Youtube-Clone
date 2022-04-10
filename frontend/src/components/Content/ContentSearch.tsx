@@ -131,8 +131,16 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
 
               if (secs > 3600) {
                 return new Date(secs * 1000).toISOString().substr(11, 8);
+              } else {
+                let shortTime = new Date(secs * 1000).toISOString().substr(14, 5);
+                let shortTimeSplit = shortTime.split(":");
+
+                if (parseInt(shortTimeSplit[0]) < 10) {
+                  return `${shortTimeSplit[0].substring(1)}:${shortTimeSplit[1]}`;
+                } else {
+                  return new Date(secs * 1000).toISOString().substr(14, 5);
+                }
               }
-              return new Date(secs * 1000).toISOString().substr(14, 5);
             };
 
             const duration = convertTime(videoTime);
