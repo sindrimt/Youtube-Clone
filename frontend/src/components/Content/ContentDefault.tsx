@@ -109,6 +109,20 @@ const ContentDefault: React.FC = () => {
             let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "hqdefault";
             let pp: string = profileThumbnails[index];
 
+            let formattedTime = items[0].contentDetails.duration;
+            console.log(items);
+
+            //todo not scaleable
+            const splitted = formattedTime.replace("PT", "").replace("S", "").split("M");
+
+            // Add a 0 if seconds are under 10
+            if (splitted[1] < 10) {
+              splitted[1] = `0${splitted[1]}`;
+            }
+
+            let duration = `${splitted[0]}:${splitted[1]}`;
+
+            //console.log(items);
             return (
               <Card
                 key={index}
@@ -117,6 +131,9 @@ const ContentDefault: React.FC = () => {
                 imageRes={imageRes}
                 channel={items[0].snippet.channelTitle}
                 profilePicture={pp}
+                views={items[0].statistics.viewCount}
+                time={7}
+                duration={duration}
               />
             );
           })}

@@ -112,6 +112,16 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
             let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "hqdefault";
             let pp: string = profileThumbnails[index];
 
+            let formattedTime = items[0].contentDetails.duration;
+
+            const splitted = formattedTime.replace("PT", "").replace("S", "").split("M");
+
+            if (splitted[1] < 10) {
+              splitted[1] = `0${splitted[1]}`;
+            }
+
+            let duration = `${splitted[0]}:${splitted[1]}`;
+
             return (
               <Card
                 key={index}
@@ -120,6 +130,9 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
                 imageRes={imageRes}
                 channel={items[0].snippet.channelTitle}
                 profilePicture={pp}
+                views={20}
+                time={7}
+                duration={duration}
               />
             );
           })}
