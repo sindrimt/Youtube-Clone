@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Sidebar, SidebarSmall, Logo } from "./SideContentStyles";
 
@@ -9,6 +10,7 @@ import "./sidecontainer.css";
 
 const SideContainer = () => {
   const [expand, setExpand] = useState<boolean>(true);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setExpand(!expand);
@@ -19,7 +21,7 @@ const SideContainer = () => {
       {expand ? (
         <Sidebar>
           <AiOutlineMenu color="white" size={20} className="hamburger_menu" onClick={handleClick} />
-          <Logo src={logo} />
+          <Logo src={logo} onClick={() => navigate("/")} />
         </Sidebar>
       ) : (
         <SidebarSmall>

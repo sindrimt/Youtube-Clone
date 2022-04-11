@@ -27,4 +27,7 @@ export const Logo = styled.img`
   position: absolute;
   top: 18px;
   left: 70px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
