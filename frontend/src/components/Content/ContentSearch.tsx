@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 import { GridContainer, Outer } from "./ContentStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../state/reducers";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 import axios from "axios";
 
@@ -19,26 +19,25 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
   const [videoResult, setVideoResult] = useState<any[]>([]);
   const [profileThumbnails, setProfileThumbnails] = useState<any[]>([]);
 
-  const API_KEY = "AIzaSyA2jqu8DsVe541pB-A3pNX0Hg3gIDMpnQs";
-  const url = useSelector((state: State) => state.url);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchResult = searchParams.get("search_query" || "");
 
-  let { search } = useParams();
+  console.log(searchResult);
 
-  //todo Denne linken gir de mest populære videoene:
-  // https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAA2UebdaJgjkACyxTuuCHEnOsywZ1sAWc&part=snippet,id&chart=mostPopular
-  //todo Sett denne som default
+  const API_KEY = "AIzaSyB59He1O3kiRo6FXq0XZ9klPPl300Wy_yw";
+
+  //let { search_query } = useParams();
+  //console.log("Search Page");
 
   useEffect(() => {
     setIsLoading(true);
     fetchVideoData();
-
-    //TODO JA URL ER KNUTTET MED USER DETTE ER NOE REDUC GREIER SE PÅ SENERE
-  }, [search]);
+  }, [searchResult]);
 
   const fetchVideoData = () => {
     // Gives basic information about the video
     const searchResults = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}
-                           &part=snippet,id&maxResults=20&q=${search}&order=viewCount&type=video`;
+                           &part=snippet,id&maxResults=20&q=${searchResult}&order=viewCount&type=video`;
 
     axios(searchResults).then((res) => {
       const videoTuple: any = new Map();

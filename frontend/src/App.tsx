@@ -27,7 +27,7 @@ const App = () => {
       <SideContainer />
       <Routes>
         <Route path="/" element={<ContentDefault />} />
-        <Route path="/results/:search" element={<ContentSearch />} />
+        <Route path="/results" element={<ContentSearch />} />
       </Routes>
     </>
   );

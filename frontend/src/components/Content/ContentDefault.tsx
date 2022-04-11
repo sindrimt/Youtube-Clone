@@ -12,7 +12,7 @@ const ContentDefault: React.FC = () => {
   const [videoResult, setVideoResult] = useState<any[]>();
   const [profileThumbnails, setProfileThumbnails] = useState<any[]>([]);
 
-  const API_KEY = "AIzaSyA2jqu8DsVe541pB-A3pNX0Hg3gIDMpnQs";
+  const API_KEY = "AIzaSyB59He1O3kiRo6FXq0XZ9klPPl300Wy_yw";
 
   //const amount = useSelector((state: State) => state.bank);
   useEffect(() => {

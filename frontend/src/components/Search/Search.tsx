@@ -10,11 +10,10 @@ const Search = () => {
   const [searchInput, setSearchInput] = useState<string>("");
   const navigate = useNavigate();
 
-  console.log(searchInput);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    navigate(`/results/${searchInput}`);
+    navigate(`/results?search_query=${searchInput}`);
   };
 
   return (
