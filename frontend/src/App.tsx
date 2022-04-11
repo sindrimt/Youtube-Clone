@@ -11,7 +11,6 @@ import { useDispatch } from "react-redux";
 import { getUsers, changeUrl } from "./state/actions/users";
 
 import "./styles/app.css";
-import { Test } from "./Test";
 
 const App = () => {
   const dispatch = useDispatch();
