@@ -120,7 +120,6 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
               if (dur.includes("D")) {
                 return "> 24h";
               }
-              console.log(dur);
               let match = dur.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
 
               match = match.slice(1).map(function (x: any) {
