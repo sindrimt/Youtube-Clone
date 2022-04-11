@@ -7,6 +7,7 @@ export const GridContainer = styled.div`
   margin-right: 10px;
   column-gap: 1rem;
   row-gap: 0rem;
+  padding-top: 5rem;
 `;
 
 export const Outer = styled.div`

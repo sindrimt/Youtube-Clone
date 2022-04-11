@@ -4,6 +4,7 @@ import Card from "../Card/Card";
 import { GridContainer, Outer } from "./ContentStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../state/reducers";
+import { useNavigate, useParams } from "react-router-dom";
 
 import axios from "axios";
 
@@ -13,13 +14,15 @@ interface ContentProps {
   searchTerm?: string;
 }
 
-const Content: React.FC<ContentProps> = ({ searchTerm }) => {
+const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) => {
   const [isLoading, setIsLoading] = useState<Boolean>(true);
   const [videoResult, setVideoResult] = useState<any[]>([]);
   const [profileThumbnails, setProfileThumbnails] = useState<any[]>([]);
 
   const API_KEY = "AIzaSyA2jqu8DsVe541pB-A3pNX0Hg3gIDMpnQs";
   const url = useSelector((state: State) => state.url);
+
+  let { search } = useParams();
 
   //todo Denne linken gir de mest populære videoene:
   // https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAA2UebdaJgjkACyxTuuCHEnOsywZ1sAWc&part=snippet,id&chart=mostPopular
@@ -28,13 +31,14 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
   useEffect(() => {
     setIsLoading(true);
     fetchVideoData();
+
     //TODO JA URL ER KNUTTET MED USER DETTE ER NOE REDUC GREIER SE PÅ SENERE
-  }, [url]);
+  }, [search]);
 
   const fetchVideoData = () => {
     // Gives basic information about the video
     const searchResults = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}
-                           &part=snippet,id&maxResults=20&q=${searchTerm}&order=viewCount&type=video`;
+                           &part=snippet,id&maxResults=20&q=${search}&order=viewCount&type=video`;
 
     axios(searchResults).then((res) => {
       const videoTuple: any = new Map();
@@ -120,7 +124,6 @@ const Content: React.FC<ContentProps> = ({ searchTerm }) => {
               if (dur.includes("D")) {
                 return "> 24h";
               }
-              console.log(dur);
               let match = dur.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
 
               match = match.slice(1).map(function (x: any) {

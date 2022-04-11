@@ -20,6 +20,7 @@ import axios from "axios";
 import "./navbar.css";
 import { State } from "../../state/reducers";
 import { changeUrl, setUser } from "../../state/actions/users";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [done, setDone] = useState<boolean>(false);
@@ -90,7 +91,7 @@ const Navbar = () => {
       </Div2>
       <Div3>
         <button onClick={handleState}>Check state</button>
-        <button onClick={handleLogout}>Sign Out</button>
+
         {/* <button onClick={handleLogin}>Sign In</button>
         <button onClick={handleGetUser}>Get User</button>
         <button onClick={handlePostUser}>Post User</button> */}
@@ -103,7 +104,10 @@ const Navbar = () => {
             LOGG PÅ
           </LoginButton>
         ) : (
-          <ProfilePic src={user.photoURL} />
+          <>
+            <ProfilePic src={user.photoURL} />
+            <button onClick={handleLogout}>Sign Out</button>
+          </>
         )}
       </Div3>
     </NavContainer>
