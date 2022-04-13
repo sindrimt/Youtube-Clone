@@ -7,6 +7,7 @@ import { GridContainer, Outer } from "./ContentStyles";
 import axios from "axios";
 
 import "./content.css";
+import LoadingCard from "../LoadingCard/LoadingCard";
 
 const ContentDefault: React.FC = () => {
   const [isLoading, setIsLoading] = useState<Boolean>(true);
@@ -92,7 +93,16 @@ const ContentDefault: React.FC = () => {
   };
   // Displaying loading while waiting for fetching data
   if (isLoading) {
-    return <div></div>;
+    let arr = new Array(20);
+    return (
+      <Outer>
+        <GridContainer>
+          {Array.apply(0, new Array(20)).map((i) => {
+            return <LoadingCard />;
+          })}
+        </GridContainer>
+      </Outer>
+    );
   }
   // Filtrer ut alle undefined objects
   let filteredArray: Array<any> = [];
