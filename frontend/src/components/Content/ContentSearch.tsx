@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import LoadingBar from "react-top-loading-bar";
 
 import Card from "../Card/Card";
 import { GridContainer, Outer } from "./ContentStyles";
@@ -22,7 +23,10 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
   const [searchParams, setSearchParams] = useSearchParams();
   const searchResult = searchParams.get("search_query" || "");
 
-  console.log(searchResult);
+  //const ref: any = useRef(null);
+  const [progress, setProgress] = useState(0);
+
+  //console.log(searchResult);
 
   const API_KEY = "AIzaSyB59He1O3kiRo6FXq0XZ9klPPl300Wy_yw";
 
@@ -30,11 +34,19 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
   //console.log("Search Page");
 
   useEffect(() => {
-    setIsLoading(true);
+    console.log(staticStart());
+    setProgress(progress + staticStart());
     fetchVideoData();
   }, [searchResult]);
 
+  const staticStart = () => {
+    let min = Math.ceil(3);
+    let max = Math.floor(7);
+    return Math.floor((Math.random() * (max - min) + min) * 10);
+  };
+
   const fetchVideoData = () => {
+    //ref.current.staticStart();
     // Gives basic information about the video
     const searchResults = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}
                            &part=snippet,id&maxResults=20&q=${searchResult}&order=viewCount&type=video`;
@@ -84,6 +96,8 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
         setVideoResult(posts);
         setProfileThumbnails(profilePictures);
         setIsLoading(false);
+        setProgress(progress + 100);
+        //setProgress((progress) => 100);
       });
     });
   };
@@ -107,6 +121,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
 
   return (
     <>
+      <LoadingBar color="#f11946" progress={progress} onLoaderFinished={() => setProgress(0)} />
       <Outer>
         <GridContainer>
           {filteredArray?.map(({ items }, index) => {
