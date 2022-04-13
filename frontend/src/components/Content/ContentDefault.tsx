@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LoadingBar from "react-top-loading-bar";
 
 import Card from "../Card/Card";
 import { GridContainer, Outer } from "./ContentStyles";
@@ -12,11 +13,18 @@ const ContentDefault: React.FC = () => {
   const [videoResult, setVideoResult] = useState<any[]>();
   const [profileThumbnails, setProfileThumbnails] = useState<any[]>([]);
 
+  const [progress, setProgress] = useState(0);
+
   const API_KEY = "AIzaSyB59He1O3kiRo6FXq0XZ9klPPl300Wy_yw";
+
+  const staticStart = () => {
+    let min = Math.ceil(3);
+    let max = Math.floor(7);
+    return Math.floor((Math.random() * (max - min) + min) * 10);
+  };
 
   //const amount = useSelector((state: State) => state.bank);
   useEffect(() => {
-    setIsLoading(true);
     fetchVideoData();
   }, []);
 
@@ -84,11 +92,7 @@ const ContentDefault: React.FC = () => {
   };
   // Displaying loading while waiting for fetching data
   if (isLoading) {
-    return (
-      <section className="outer">
-        <div className="loading">Loading...</div>
-      </section>
-    );
+    return <div></div>;
   }
   // Filtrer ut alle undefined objects
   let filteredArray: Array<any> = [];
@@ -101,6 +105,7 @@ const ContentDefault: React.FC = () => {
 
   return (
     <>
+      <LoadingBar color="#f11946" progress={progress} onLoaderFinished={() => setProgress(0)} />
       <Outer>
         <GridContainer>
           {filteredArray?.map(({ items }, index) => {

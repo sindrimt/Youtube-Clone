@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import LoadingBar from "react-top-loading-bar";
 
 import Card from "../Card/Card";
@@ -23,10 +23,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
   const [searchParams, setSearchParams] = useSearchParams();
   const searchResult = searchParams.get("search_query" || "");
 
-  //const ref: any = useRef(null);
   const [progress, setProgress] = useState(0);
-
-  //console.log(searchResult);
 
   const API_KEY = "AIzaSyB59He1O3kiRo6FXq0XZ9klPPl300Wy_yw";
 
@@ -34,7 +31,6 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
   //console.log("Search Page");
 
   useEffect(() => {
-    console.log(staticStart());
     setProgress(progress + staticStart());
     fetchVideoData();
   }, [searchResult]);
@@ -103,11 +99,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
   };
   // Displaying loading while waiting for fetching data
   if (isLoading) {
-    return (
-      <section className="outer">
-        <div className="loading">Loading...</div>
-      </section>
-    );
+    return <div></div>;
   }
 
   // Filtrer ut alle undefined objects
