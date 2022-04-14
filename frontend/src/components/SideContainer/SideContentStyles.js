@@ -23,10 +23,10 @@ export const SidebarSmall = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 95px;
+  width: 90px;
   position: absolute;
-  top: 18px;
-  left: 70px;
+  top: 16px;
+  left: 72px;
   &:hover {
     cursor: pointer;
   }

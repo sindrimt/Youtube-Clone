@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NavContainer = styled.div`
   position: fixed;
   width: 100%;
-  height: 4rem;
+  height: 55px;
   background-color: rgba(33, 33, 33, 0.98);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -27,7 +27,7 @@ export const Div2 = styled.div`
   justify-content: space-around;
 `;
 export const Div3 = styled.div`
-  grid-area: 1 / 5 / 2 / 6;
+  grid-area: 1 / 5 / 2 / 5;
   display: flex;
   justify-content: space-around;
   align-items: center;

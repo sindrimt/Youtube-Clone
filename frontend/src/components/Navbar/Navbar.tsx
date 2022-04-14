@@ -105,7 +105,8 @@ const Navbar = () => {
           </LoginButton>
         ) : (
           <>
-            <ProfilePic src={user.photoURL} />
+            {console.log(user.photoURL)}
+            <ProfilePic src={user.photoURL} alt="PP" />
             <button onClick={handleLogout}>Sign Out</button>
           </>
         )}

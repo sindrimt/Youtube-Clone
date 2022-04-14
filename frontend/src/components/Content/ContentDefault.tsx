@@ -92,8 +92,8 @@ const ContentDefault: React.FC = () => {
       <Outer>
         <GridContainer>
           {/* Displays 20 loading cards while loading content*/}
-          {Array.apply(0, new Array(20)).map((i) => {
-            return <LoadingCard />;
+          {Array.apply(0, new Array(20)).map((i, index) => {
+            return <LoadingCard key={index} />;
           })}
         </GridContainer>
       </Outer>

@@ -28,7 +28,7 @@ const Search = () => {
           />
         </form>
         <div className="after">
-          <AiOutlineSearch size={20} className="icon" />
+          <AiOutlineSearch size={22} className="icon" />
         </div>
         <div className="microphone">
           <FaMicrophone size={18} className="mic_icon" />
