@@ -18,12 +18,6 @@ const ContentDefault: React.FC = () => {
 
   const API_KEY = "AIzaSyB59He1O3kiRo6FXq0XZ9klPPl300Wy_yw";
 
-  const staticStart = () => {
-    let min = Math.ceil(3);
-    let max = Math.floor(7);
-    return Math.floor((Math.random() * (max - min) + min) * 10);
-  };
-
   //const amount = useSelector((state: State) => state.bank);
   useEffect(() => {
     fetchVideoData();
@@ -97,6 +91,7 @@ const ContentDefault: React.FC = () => {
     return (
       <Outer>
         <GridContainer>
+          {/* Displays 20 loading cards while loading content*/}
           {Array.apply(0, new Array(20)).map((i) => {
             return <LoadingCard />;
           })}
