@@ -4,7 +4,7 @@ export const Outer = styled.div`
   z-index: -10;
   color: #fefefe;
   background-color: none;
-  height: 280px;
+  height: 290px;
 `;
 
 export const ImageContainer = styled.div`
