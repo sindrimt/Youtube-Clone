@@ -21,6 +21,7 @@ import "./navbar.css";
 import { State } from "../../state/reducers";
 import { changeUrl, setUser } from "../../state/actions/users";
 import { Link } from "react-router-dom";
+import { Filter } from "../Filters/Filter";
 
 const Navbar = () => {
   const [done, setDone] = useState<boolean>(false);
@@ -111,6 +112,7 @@ const Navbar = () => {
           </>
         )}
       </Div3>
+      <Filter />
     </NavContainer>
   );
 };
