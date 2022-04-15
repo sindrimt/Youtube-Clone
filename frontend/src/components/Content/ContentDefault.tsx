@@ -16,7 +16,7 @@ const ContentDefault: React.FC = () => {
 
   const [progress, setProgress] = useState(0);
 
-  const API_KEY = "AIzaSyB59He1O3kiRo6FXq0XZ9klPPl300Wy_yw";
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   //const amount = useSelector((state: State) => state.bank);
   useEffect(() => {

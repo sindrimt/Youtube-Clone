@@ -44,6 +44,7 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
     views = Math.trunc(views) + "k";
   } else {
     views = sign * views + " " + unitlist[unit];
+    // Converts to string and replaces . with ,
     views = views.toString().replace(".", ",");
   }
 
@@ -63,15 +64,19 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
 
   // Converts time from upload to now in a nice format
   if (hours < 1) {
-    time = Math.floor((Date.now() - time) / minutes) + " minutter";
+    time = Math.floor((Date.now() - time) / minutes);
+    time += time > 1 ? " minutter" : " minutt";
   } else if (hours >= 1 && hours < 24) {
-    time = Math.floor((Date.now() - time) / msToHours) + " timer";
+    time = Math.floor((Date.now() - time) / msToHours);
+    time += time > 1 ? " timer" : " time";
   } else if (hours >= day && hours < week) {
     time = Math.floor((Date.now() - time) / (msToHours * day)) + " døgn";
   } else if (hours >= week && hours < month) {
-    time = Math.floor((Date.now() - time) / (msToHours * week)) + " uker";
+    time = Math.floor((Date.now() - time) / (msToHours * week));
+    time += time > 1 ? " uker" : " uke";
   } else if (hours >= month && hours < year) {
-    time = Math.floor((Date.now() - time) / (msToHours * month)) + " måneder";
+    time = Math.floor((Date.now() - time) / (msToHours * month));
+    time += time > 1 ? " måneder" : " måned";
   } else {
     time = Math.floor((Date.now() - time) / (msToHours * year)) + " år";
   }
