@@ -29,6 +29,7 @@ export const ProfilePicture = styled.div`
 export const Channel = styled.span`
   position: relative;
   line-height: 20px;
+  font-size: 14px;
   background-color: #303030;
   color: transparent;
   border-radius: 1px;
@@ -40,12 +41,12 @@ export const Channel = styled.span`
 export const Upload = styled.span`
   color: #aaaaaa;
   position: relative;
-  font-size: 12px;
+  font-size: 14px;
   color: transparent;
 `;
 export const Title = styled.span`
-  font-size: 13.5px;
   line-height: 16px;
+  font-size: 14px;
   border-radius: 1px;
   color: transparent;
   background-color: #303030;

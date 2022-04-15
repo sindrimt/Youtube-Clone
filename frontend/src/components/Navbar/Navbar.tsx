@@ -42,7 +42,7 @@ const Navbar = () => {
         dispatch(setUser(user));
         setLoadingUser(false);
         //console.log(res);
-        console.log("Loaded sign in data");
+        console.log(user);
       })
       .catch((error) => console.log(error));
   }, [done]);
