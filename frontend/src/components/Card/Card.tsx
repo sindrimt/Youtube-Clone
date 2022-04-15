@@ -46,17 +46,20 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
     views = sign * views + unitlist[unit];
   }
 
+  // Reassignment of time gotten from API
   time = new Date(time.slice(0, -1));
 
-  let msToHours = 1000 * 3600;
+  // Some constants for time measurements
+  const msToHours = 1000 * 3600;
 
-  let hours = (Date.now() - time) / msToHours;
+  const hours = (Date.now() - time) / msToHours;
 
-  let day = 24;
-  let week = 168;
-  let month = 730;
-  let year = 8765;
+  const day = 24;
+  const week = 168;
+  const month = 730;
+  const year = 8765;
 
+  // Converts time from upload to now in a nice format
   if (hours < 24) {
     time = Math.floor((Date.now() - time) / msToHours) + " timer";
   } else if (hours >= day && hours < week) {
