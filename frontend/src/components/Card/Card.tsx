@@ -32,7 +32,7 @@ type Props = {
 
 const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, duration }: Props) => {
   // Converts views to a shorter format
-  var unitlist = ["", "K", "M", "G"];
+  var unitlist = ["", "k", "mill."];
   let sign = Math.sign(views);
   let unit = 0;
   while (Math.abs(views) > 1000) {
@@ -40,10 +40,11 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
     views = Math.floor(Math.abs(views) / 100) / 10;
   }
   // Removes the decimal if unit is K
-  if (unitlist[unit] == "K") {
-    views = Math.trunc(views) + "K";
+  if (unitlist[unit] == "k") {
+    views = Math.trunc(views) + "k";
   } else {
-    views = sign * views + unitlist[unit];
+    views = sign * views + " " + unitlist[unit];
+    views = views.toString().replace(".", ",");
   }
 
   // Reassignment of time gotten from API
@@ -54,13 +55,16 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
 
   const hours = (Date.now() - time) / msToHours;
 
+  const minutes = msToHours / 60;
   const day = 24;
   const week = 168;
   const month = 730;
   const year = 8765;
 
   // Converts time from upload to now in a nice format
-  if (hours < 24) {
+  if (hours < 1) {
+    time = Math.floor((Date.now() - time) / minutes) + " minutter";
+  } else if (hours >= 1 && hours < 24) {
     time = Math.floor((Date.now() - time) / msToHours) + " timer";
   } else if (hours >= day && hours < week) {
     time = Math.floor((Date.now() - time) / (msToHours * day)) + " døgn";
