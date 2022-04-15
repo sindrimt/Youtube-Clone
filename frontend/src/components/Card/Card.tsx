@@ -26,11 +26,23 @@ type Props = {
   imageRes: string;
   profilePicture: string;
   time: number;
-  views: number;
+  views: number | any;
   duration: any;
 };
 
 const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, duration }: Props) => {
+  var unitlist = ["", "K", "M", "G"];
+  let sign = Math.sign(views);
+  let unit = 0;
+  while (Math.abs(views) > 1000) {
+    unit = unit + 1;
+    views = Math.floor(Math.abs(views) / 100) / 10;
+  }
+  if (unitlist[unit] == "K") {
+    views = Math.trunc(views) + "K";
+  } else {
+    views = sign * views + unitlist[unit];
+  }
   return (
     <>
       <Outer>
