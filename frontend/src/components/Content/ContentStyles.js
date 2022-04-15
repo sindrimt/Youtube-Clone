@@ -6,12 +6,12 @@ export const GridContainer = styled.div`
   margin-right: 10px;
   column-gap: 1rem;
   row-gap: 0rem;
-  padding-top: 7.7rem;
+  padding-top: 8.1rem;
 `;
 
 export const Outer = styled.div`
   float: right;
-  padding-left: 250px;
+  padding-left: 260px;
   padding-right: 10px;
 
   @media (max-width: 1000px) {

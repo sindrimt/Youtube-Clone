@@ -9,10 +9,9 @@ import ContentDefault from "./components/Content/ContentDefault";
 
 import { Gap } from "./styles/GloabalStyles";
 import { useDispatch } from "react-redux";
-import { getUsers, changeUrl } from "./state/actions/users";
+import { getUsers } from "./state/actions/users";
 
 import "./styles/app.css";
-import { Search } from "./Search";
 
 const App = () => {
   const dispatch = useDispatch();
