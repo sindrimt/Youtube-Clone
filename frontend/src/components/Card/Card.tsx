@@ -25,12 +25,13 @@ type Props = {
   channel: string;
   imageRes: string;
   profilePicture: string;
-  time: number;
+  time: string | any;
   views: number | any;
   duration: any;
 };
 
 const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, duration }: Props) => {
+  // Converts views to a shorter format
   var unitlist = ["", "K", "M", "G"];
   let sign = Math.sign(views);
   let unit = 0;
@@ -38,11 +39,36 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
     unit = unit + 1;
     views = Math.floor(Math.abs(views) / 100) / 10;
   }
+  // Removes the decimal if unit is K
   if (unitlist[unit] == "K") {
     views = Math.trunc(views) + "K";
   } else {
     views = sign * views + unitlist[unit];
   }
+
+  time = new Date(time.slice(0, -1));
+
+  let msToHours = 1000 * 3600;
+
+  let hours = (Date.now() - time) / msToHours;
+
+  let day = 24;
+  let week = 168;
+  let month = 730;
+  let year = 8765;
+
+  if (hours < 24) {
+    time = Math.floor((Date.now() - time) / msToHours) + " timer";
+  } else if (hours >= day && hours < week) {
+    time = Math.floor((Date.now() - time) / (msToHours * day)) + " døgn";
+  } else if (hours >= week && hours < month) {
+    time = Math.floor((Date.now() - time) / (msToHours * week)) + " uker";
+  } else if (hours >= month && hours < year) {
+    time = Math.floor((Date.now() - time) / (msToHours * month)) + " måneder";
+  } else {
+    time = Math.floor((Date.now() - time) / (msToHours * year)) + " år";
+  }
+
   return (
     <>
       <Outer>
@@ -62,7 +88,7 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
             <Channel>
               {channel} <br />
               <Views>Sett {views} ganger</Views>
-              <Upload>for {time} timer siden</Upload>
+              <Upload>for {time} siden</Upload>
             </Channel>
           </Right>
         </InfoContainer>

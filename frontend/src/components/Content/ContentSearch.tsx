@@ -172,7 +172,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
                 channel={items[0].snippet.channelTitle}
                 profilePicture={pp}
                 views={items[0].statistics.viewCount}
-                time={7}
+                time={items[0].snippet.publishedAt}
                 duration={duration}
               />
             );

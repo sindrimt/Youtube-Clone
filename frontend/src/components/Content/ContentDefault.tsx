@@ -56,7 +56,7 @@ const ContentDefault: React.FC = () => {
 
         return (
           axios.get(url).then((res) => {
-            // console.log(res.data);
+            //console.log(res.data);
             videoTuple.get(video.id)[0] = res.data;
             //console.log(video.id.videoId);
           }),
@@ -168,7 +168,7 @@ const ContentDefault: React.FC = () => {
                 channel={items[0].snippet.channelTitle}
                 profilePicture={pp}
                 views={items[0].statistics.viewCount}
-                time={7}
+                time={items[0].snippet.publishedAt}
                 duration={duration}
               />
             );
