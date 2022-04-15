@@ -118,7 +118,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
           {filteredArray?.map(({ items }, index) => {
             // Checks if a maxres image exists
             // If it does: set maxres, else set highres
-            let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "hqdefault";
+            let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "mqdefault";
             let pp: string = profileThumbnails[index];
 
             // Youtube videotime duration weird ass format
