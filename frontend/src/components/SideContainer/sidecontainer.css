@@ -3,7 +3,7 @@
 }
 
 .hamburger_menu {
-  position: absolute;
+  position: fixed;
   top: 18px;
   left: 27px;
 }
@@ -12,8 +12,23 @@
   margin-left: 25px;
 }
 
+.textSpanSub {
+  margin-left: 20px;
+}
+
+.abbonomenter {
+  color: #aaaaaa;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.textSpanArrow {
+  margin-left: 30px;
+}
+
 @media screen and (max-width: 1330px) {
-  .textSpan {
+  .textSpan,
+  .textSpanSub {
     display: none;
   }
 }
