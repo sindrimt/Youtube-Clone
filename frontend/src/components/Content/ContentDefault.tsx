@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LoadingBar from "react-top-loading-bar";
 
 import Card from "../Card/Card";
-import { GridContainer, Outer } from "./ContentStyles";
+import { GridContainer, Outer, LoadingOuter } from "./ContentStyles";
 
 import axios from "axios";
 
@@ -89,14 +89,14 @@ const ContentDefault: React.FC = () => {
   if (isLoading) {
     let arr = new Array(20);
     return (
-      <Outer>
+      <LoadingOuter>
         <GridContainer>
           {/* Displays 20 loading cards while loading content*/}
           {Array.apply(0, new Array(20)).map((i, index) => {
             return <LoadingCard key={index} />;
           })}
         </GridContainer>
-      </Outer>
+      </LoadingOuter>
     );
   }
   // Filtrer ut alle undefined objects
