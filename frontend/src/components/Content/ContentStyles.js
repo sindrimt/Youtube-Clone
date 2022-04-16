@@ -14,15 +14,21 @@ export const Outer = styled.div`
   padding-left: 260px;
   padding-right: 10px;
 
+  @media (max-width: 1330px) {
+    padding-left: 85px;
+  }
   @media (max-width: 1000px) {
     width: 100%;
-    padding-right: 0px;
-    padding-left: 10px;
+    padding-left: 85px;
+  }
+  @media (max-width: 800px) {
+    padding-left: 20px;
+    padding-right: 10px;
   }
   @media (max-width: 550px) {
     width: 100%;
-    padding-right: 80px;
-    padding-left: 80px;
+    padding-right: 60px;
+    padding-left: 60px;
   }
 `;
 
