@@ -1,15 +1,14 @@
 .outer_search_box {
-  padding-left: 45px;
+  padding-left: 120px;
   display: flex;
   align-content: center;
   justify-content: flex-start;
-  width: 700px;
 }
 
 .search_box {
   background-color: #121212;
   height: 40px;
-  width: 550px;
+  width: 37vw;
   text-decoration: none;
   border: none;
   font-size: 15px;
