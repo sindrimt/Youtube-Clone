@@ -44,12 +44,23 @@ export const Logo = styled.img`
 
 export const SubscribedOuter = styled.div`
   display: flex;
-  padding: 25px;
+  padding: 20px 0px 15px 25px;
   margin-top: 52px;
   flex-direction: column;
   align-items: inherit;
   width: 100%;
-  gap: 20px;
+  gap: 18px;
+  /* @media (max-width: 1330px) {
+    display: none;
+  } */
+`;
+export const SubscribedOuter2 = styled.div`
+  display: flex;
+  padding: 20px 0px 0px 25px;
+  flex-direction: column;
+  align-items: inherit;
+  width: 100%;
+  gap: 18px;
   @media (max-width: 1330px) {
     display: none;
   }
@@ -61,13 +72,10 @@ export const Subscribed = styled.div`
   color: white;
   font-size: 14px;
   align-items: center;
-  &:nth-child(1) {
-    background-color: #303030;
-  }
 `;
 
 export const Line = styled.div`
-  margin-top: 10px;
+  margin-top: 0px;
   width: 92%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   @media (max-width: 1330px) {

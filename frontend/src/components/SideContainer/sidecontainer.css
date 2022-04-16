@@ -11,3 +11,9 @@
 .textSpan {
   margin-left: 25px;
 }
+
+@media screen and (max-width: 1330px) {
+  .textSpan {
+    display: none;
+  }
+}
