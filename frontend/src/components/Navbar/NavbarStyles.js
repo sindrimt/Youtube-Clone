@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavContainer = styled.div`
   position: fixed;
-  width: 100%;
+  width: 100vw;
   height: 55px;
   background-color: rgba(33, 33, 33, 0.98);
   display: grid;
@@ -12,14 +12,6 @@ export const NavContainer = styled.div`
   color: white;
 `;
 
-export const Logo = styled.div`
-  z-index: 100;
-  grid-area: 1 / 1 / 2 / 2;
-  display: flex;
-  margin-left: 100px;
-  flex-direction: row;
-  align-items: center;
-`;
 export const Div2 = styled.div`
   grid-area: 1 / 3 / 2 / 4;
   display: flex;
@@ -31,6 +23,7 @@ export const Div3 = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-right: 20px;
 `;
 
 export const ProfilePic = styled.img`

@@ -11,9 +11,20 @@ export const FilterContainer = styled.div`
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   margin-left: 240px;
+
   @media (max-width: 1000px) {
     margin-left: 0px;
     width: 100vw;
+  }
+
+  @media (max-width: 1330px) {
+    margin-left: 70px;
+    width: 94vw;
+  }
+
+  @media (max-width: 800px) {
+    width: 100vw;
+    margin-left: 0;
   }
 `;
 
@@ -26,6 +37,7 @@ export const FilterContent = styled.div`
 export const Tag = styled.button`
   display: flex;
   color: white;
+  white-space: nowrap;
   transition: 0.2s;
   font-size: 14px;
   align-items: center;
