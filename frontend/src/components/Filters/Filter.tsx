@@ -25,8 +25,8 @@ export const Filter = () => {
     <FilterContainer>
       <FilterContent>
         <Tag ref={buttonRef}>Alle</Tag>
-        {tags.map((tag: string) => (
-          <Tag>{tag}</Tag>
+        {tags.map((tag: string, index: number) => (
+          <Tag key={index}>{tag}</Tag>
         ))}
       </FilterContent>
     </FilterContainer>
