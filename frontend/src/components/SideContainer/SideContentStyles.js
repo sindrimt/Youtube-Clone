@@ -8,8 +8,18 @@ export const Sidebar = styled.div`
   top: 0;
   left: 0;
   background-color: rgba(33, 33, 33, 0.98);
-  @media (max-width: 1000px) {
-    display: none;
+
+  @media (max-width: 1330px) {
+    height: 100vh;
+    width: 70px;
+    position: fixed;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    background-color: rgba(33, 33, 33, 0.98);
+  }
+  @media (max-width: 800px) {
+    width: 0px;
   }
 `;
 export const SidebarSmall = styled.div`
@@ -40,6 +50,9 @@ export const SubscribedOuter = styled.div`
   align-items: inherit;
   width: 100%;
   gap: 20px;
+  @media (max-width: 1330px) {
+    display: none;
+  }
 `;
 
 export const Subscribed = styled.div`
@@ -57,4 +70,7 @@ export const Line = styled.div`
   margin-top: 10px;
   width: 92%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  @media (max-width: 1330px) {
+    display: none;
+  }
 `;

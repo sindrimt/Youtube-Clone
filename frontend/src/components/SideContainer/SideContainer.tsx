@@ -56,6 +56,7 @@ const SideContainer = () => {
       ) : (
         <SidebarSmall>
           <AiOutlineMenu color="white" size={20} className="hamburger_menu" onClick={handleClick} />
+          <Logo src={logo} onClick={logoClick} />
         </SidebarSmall>
       )}
     </>
