@@ -65,6 +65,7 @@ const ContentDefault: React.FC = () => {
             //console.log(res);
             videoTuple.get(video.id)[1] = res.data.items[0].snippet.thumbnails.default.url;
             //console.log(video.id.videoId);
+            //yeet
           })
         );
       });
