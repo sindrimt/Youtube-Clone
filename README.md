@@ -1,12 +1,15 @@
-## Run Locally
+<h2>Still in the making</h2> 
 
-<h3>Frontend</h3>
+<h3>Run Locally :</h3>
+
+
+**Frontend**
 
 >cd frontend <br />
 
 >npm start
 
-<h3>Backend</h3>
+**Backend**
 
 > (root): npm start
 
