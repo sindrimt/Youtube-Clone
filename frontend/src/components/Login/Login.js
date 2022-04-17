@@ -24,16 +24,10 @@ export const Login = () => {
     return window.gapi.auth2
       .getAuthInstance()
       .signIn({ scope: "https://www.googleapis.com/auth/youtube" })
-      .then(
-        function () {
-          console.log("Sign-in successful");
-        },
-        function (err) {
-          console.error("Error signing in", err);
-        }
-      );
+      .then((res) => {
+        console.log(res);
+      });
   }
-  console.log("contenmt");
   function loadClient() {
     window.gapi.client.setApiKey("AIzaSyBTS9wiV0dM9JPv4kIm1_Y-FSs4QXgTN5k");
     return window.gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest").then(
@@ -66,10 +60,16 @@ export const Login = () => {
     window.gapi.auth2.init({ client_id: "342060317720-384fnit80j636106ekluk1bn06fpmnk5" });
   });
 
+  // idk man returnerer true uansett :P
+  const checkUser = () => {
+    console.log(window.gapi.auth2.getAuthInstance().isSignedIn.get());
+  };
+
   return (
     <>
       <button onClick={() => authenticate().then(loadClient)}>Sign in</button>
       <button onClick={() => execute()}>Execute</button>
+      <button onClick={() => checkUser()}>check user</button>
     </>
   );
 };
