@@ -3,6 +3,7 @@
 }
 
 .hamburger_menu {
+  z-index: 1000000;
   position: fixed;
   top: 18px;
   left: 27px;
@@ -14,6 +15,11 @@
 
 .textSpanSub {
   margin-left: 20px;
+}
+
+.under {
+  margin-top: 10px;
+  font-size: 10px;
 }
 
 .abbonomenter {

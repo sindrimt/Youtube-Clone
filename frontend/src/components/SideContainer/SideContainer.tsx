@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
@@ -12,6 +12,7 @@ import {
   Line,
   SubscribedOuter3,
   SubProfilePicture,
+  SubscribedSmall,
 } from "./SideContentStyles";
 
 import { AiOutlineMenu } from "react-icons/ai";
@@ -35,6 +36,16 @@ const SideContainer = () => {
   //todo SUBSCRIPTION API URL
 
   const [progress, setProgress] = useState(0);
+  const [width, setWidth] = useState(window.innerWidth);
+
+  // Gets the window size
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
 
   const handleClick = () => {
     setExpand(!expand);
@@ -50,7 +61,11 @@ const SideContainer = () => {
       <LoadingBar color="#f11946" progress={progress} onLoaderFinished={() => setProgress(0)} />
       <Logo src={logo} onClick={logoClick} />
       <AiOutlineMenu color="white" size={20} className="hamburger_menu" onClick={handleClick} />
-      {expand ? (
+
+      {/* If the width if more than 1330px or expanded, display full sidebar */}
+      {/* Else display small sidebar */}
+
+      {expand && width > 1330 ? (
         <Sidebar>
           <SubscribedOuter>
             <Subscribed>
@@ -136,8 +151,26 @@ const SideContainer = () => {
         </Sidebar>
       ) : (
         <SidebarSmall>
-          <AiOutlineMenu color="white" size={20} className="hamburger_menu" onClick={handleClick} />
-          <Logo src={logo} onClick={logoClick} />
+          <SubscribedSmall>
+            <BsFillHouseDoorFill color="white" size={21} />
+            <span className="under">Startside</span>
+          </SubscribedSmall>
+          <SubscribedSmall>
+            <RiCompass3Line color="white" size={24} />
+            <span className="under">Utforsk</span>
+          </SubscribedSmall>
+          <SubscribedSmall>
+            <RiYoutubeFill color="white" size={22} />
+            <span className="under">Shorts</span>
+          </SubscribedSmall>
+          <SubscribedSmall>
+            <RiYoutubeLine color="white" size={22} />
+            <span className="under">Abbonomenter</span>
+          </SubscribedSmall>
+          <SubscribedSmall>
+            <MdOutlineVideoLibrary color="white" size={21} />
+            <span className="under">Bibliotek</span>
+          </SubscribedSmall>
         </SidebarSmall>
       )}
     </>

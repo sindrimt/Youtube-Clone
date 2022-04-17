@@ -25,27 +25,45 @@ export const Sidebar = styled.div`
     }
   }
 
-  @media (max-width: 1330px) {
+  /*  @media (max-width: 1330px) {
     height: 100vh;
-    width: 70px;
+    width: 72px;
     position: fixed;
     display: inline-block;
     top: 0;
     left: 0;
     background-color: rgba(33, 33, 33, 0.98);
-  }
+  } */
+
   @media (max-width: 800px) {
     width: 0px;
   }
 `;
 export const SidebarSmall = styled.div`
+  margin-top: 55px;
   height: 100vh;
-  width: 70px;
+  width: 72px;
   position: fixed;
-  display: inline-block;
+  padding: 20px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
   top: 0;
   left: 0;
   background-color: rgba(33, 33, 33, 0.98);
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+`;
+
+export const SubscribedSmall = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 14px;
 `;
 
 export const Logo = styled.img`
@@ -66,6 +84,7 @@ export const SubscribedOuter = styled.div`
   width: 100%;
   gap: 18px;
 `;
+
 export const SubscribedOuter2 = styled.div`
   display: flex;
   padding: 20px 0px 25px 25px;
@@ -73,9 +92,9 @@ export const SubscribedOuter2 = styled.div`
   align-items: inherit;
   width: 100%;
   gap: 18px;
-  @media (max-width: 1330px) {
+  /*  @media (max-width: 1330px) {
     display: none;
-  }
+  } */
 `;
 
 export const SubscribedOuter3 = styled.div`
@@ -85,9 +104,9 @@ export const SubscribedOuter3 = styled.div`
   align-items: inherit;
   width: 100%;
   gap: 18px;
-  @media (max-width: 1330px) {
+  /*  @media (max-width: 1330px) {
     display: none;
-  }
+  } */
 `;
 
 export const SubProfilePicture = styled.img`
@@ -107,9 +126,9 @@ export const Subscribed = styled.div`
 
 export const Line = styled.div`
   margin-top: 0px;
-  width: 92%;
+  width: 222px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  @media (max-width: 1330px) {
+  /* @media (max-width: 1330px) {
     display: none;
-  }
+  } */
 `;
