@@ -5,6 +5,9 @@ export const Outer = styled.div`
   color: #fefefe;
   background-color: none;
   height: 290px;
+  @media (max-width: 550px) {
+    height: 320px;
+  }
 `;
 
 export const ImageContainer = styled.div`
