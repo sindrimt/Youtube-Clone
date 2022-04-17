@@ -22,6 +22,7 @@ import { State } from "../../state/reducers";
 import { changeUrl, setUser } from "../../state/actions/users";
 import { Link } from "react-router-dom";
 import { Filter } from "../Filters/Filter";
+import { Login } from "../Login/Login";
 
 const Navbar = () => {
   const [done, setDone] = useState<boolean>(false);
@@ -91,6 +92,7 @@ const Navbar = () => {
         <Search />
       </Div2>
       <Div3>
+        <Login />
         <button onClick={handleState}>Check state</button>
 
         {/* <button onClick={handleLogin}>Sign In</button>
