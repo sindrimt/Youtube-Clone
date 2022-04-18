@@ -44,7 +44,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
     //ref.current.staticStart();
     // Gives basic information about the video
     const searchResults = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}
-                           &part=snippet,id&maxResults=20&q=${searchResult}&order=viewCount&type=video`;
+                           &part=snippet,id&maxResults=20&q=${searchResult}&type=video`; /* &order=viewCount */
 
     axios(searchResults).then((res) => {
       const videoTuple: any = new Map();
