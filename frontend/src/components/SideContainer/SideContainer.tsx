@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setSubscriptions } from "../../state/actions/users";
+import { State } from "../../state/reducers";
+
 import {
   Sidebar,
   SidebarSmall,
@@ -28,6 +32,8 @@ import "./sidecontainer.css";
 const SideContainer = () => {
   const [expand, setExpand] = useState<boolean>(true);
   const navigate = useNavigate();
+
+  const subs = useSelector((state: State) => state.subs);
 
   //todo SUBSCRIPTION API URL
   //todo ==============================
@@ -106,48 +112,28 @@ const SideContainer = () => {
           </SubscribedOuter2>
 
           <Line />
+          {Object.keys(subs).length === 0 && subs.constructor === Object ? (
+            <span style={{ color: "white" }}>LOGG PÅ</span>
+          ) : (
+            <>
+              {console.log(subs)}
 
-          <SubscribedOuter3>
-            <Subscribed>
-              <span className="abbonomenter">ABBONOMENTER</span>
-            </Subscribed>
-            <Subscribed>
-              <SubProfilePicture src="https://semprefuigeek.com.br/wp-content/uploads/2022/04/one-piece-luffy-gear-5-fanart-autor-desconhecido-postcover-1.jpg" />
-              <span className="textSpanSub">Channel Name</span>
-            </Subscribed>
-            <Subscribed>
-              <SubProfilePicture src="https://semprefuigeek.com.br/wp-content/uploads/2022/04/one-piece-luffy-gear-5-fanart-autor-desconhecido-postcover-1.jpg" />
-              <span className="textSpanSub">Channel</span>
-            </Subscribed>
-            <Subscribed>
-              <SubProfilePicture src="https://semprefuigeek.com.br/wp-content/uploads/2022/04/one-piece-luffy-gear-5-fanart-autor-desconhecido-postcover-1.jpg" />
-              <span className="textSpanSub">Channel23</span>
-            </Subscribed>
-            <Subscribed>
-              <SubProfilePicture src="https://semprefuigeek.com.br/wp-content/uploads/2022/04/one-piece-luffy-gear-5-fanart-autor-desconhecido-postcover-1.jpg" />
-              <span className="textSpanSub">Channel Name3</span>
-            </Subscribed>
-            <Subscribed>
-              <SubProfilePicture src="https://semprefuigeek.com.br/wp-content/uploads/2022/04/one-piece-luffy-gear-5-fanart-autor-desconhecido-postcover-1.jpg" />
-              <span className="textSpanSub">Name Name</span>
-            </Subscribed>
-            <Subscribed>
-              <SubProfilePicture src="https://semprefuigeek.com.br/wp-content/uploads/2022/04/one-piece-luffy-gear-5-fanart-autor-desconhecido-postcover-1.jpg" />
-              <span className="textSpanSub">Name</span>
-            </Subscribed>
-            <Subscribed>
-              <SubProfilePicture src="https://semprefuigeek.com.br/wp-content/uploads/2022/04/one-piece-luffy-gear-5-fanart-autor-desconhecido-postcover-1.jpg" />
-              <span className="textSpanSub">Channel Name</span>
-            </Subscribed>
-            <Subscribed>
-              <SubProfilePicture src="https://semprefuigeek.com.br/wp-content/uploads/2022/04/one-piece-luffy-gear-5-fanart-autor-desconhecido-postcover-1.jpg" />
-              <span className="textSpanSub">Channel Name</span>
-            </Subscribed>
-            <Subscribed>
-              <SubProfilePicture src="https://semprefuigeek.com.br/wp-content/uploads/2022/04/one-piece-luffy-gear-5-fanart-autor-desconhecido-postcover-1.jpg" />
-              <span className="textSpanSub">Channel Name</span>
-            </Subscribed>
-          </SubscribedOuter3>
+              <SubscribedOuter3>
+                <Subscribed>
+                  <span className="abbonomenter">ABBONOMENTER</span>
+                </Subscribed>
+
+                {subs.result.items?.map((sub: any, index: number) => {
+                  return (
+                    <Subscribed key={index}>
+                      <SubProfilePicture src={sub.snippet.thumbnails.high.url} />
+                      <span className="textSpanSub">{sub.snippet.title}</span>
+                    </Subscribed>
+                  );
+                })}
+              </SubscribedOuter3>
+            </>
+          )}
         </Sidebar>
       ) : (
         <SidebarSmall>
