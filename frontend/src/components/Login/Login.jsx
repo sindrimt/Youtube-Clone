@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeUrl, setUser } from "../../state/actions/users";
+import { changeUrl, setUser, setSubscriptions } from "../../state/actions/users";
 
 import { LoginButton, ProfilePic } from "./LoginStyles";
 import { IoPersonCircleOutline } from "react-icons/io5";
@@ -56,6 +56,7 @@ export const Login = () => {
         function (response) {
           // Handle the results here (response.result has the parsed body).
           console.log("Response", response);
+          dispatch(setSubscriptions(response));
         },
         function (err) {
           console.error("Execute error", err);
