@@ -36,3 +36,12 @@ export const setUser = (user) => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const setSubscriptions = (subs) => async (dispatch) => {
+  try {
+    const action = { type: "SET_SUBSCRIPTIONS", payload: subs };
+    dispatch(action);
+  } catch (error) {
+    console.log(error.message);
+  }
+};

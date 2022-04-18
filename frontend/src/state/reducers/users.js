@@ -32,3 +32,12 @@ export const user = (user = {}, action) => {
       return user;
   }
 };
+
+export const subs = (subs = {}, action) => {
+  switch (action.type) {
+    case "SET_SUBSCRIPTIONS":
+      return action.payload;
+    default:
+      return subs;
+  }
+};
