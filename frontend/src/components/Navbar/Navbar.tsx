@@ -41,7 +41,7 @@ const Navbar = () => {
     getGoogleRedirectResults()
       .then(({ user }: any) => {
         //todo
-        dispatch(setUser(user));
+        //dispatch(setUser(user));
         setLoadingUser(false);
         //console.log(res);
         console.log(user);
@@ -83,7 +83,7 @@ const Navbar = () => {
   };
 
   const handleState = () => {
-    console.log(user);
+    console.log(user.getName());
   };
 
   return (
@@ -93,26 +93,11 @@ const Navbar = () => {
       </Div2>
       <Div3>
         <Login />
-        <button onClick={handleState}>Check state</button>
+        {/*  <button onClick={handleState}>Check state</button> */}
 
         {/* <button onClick={handleLogin}>Sign In</button>
         <button onClick={handleGetUser}>Get User</button>
         <button onClick={handlePostUser}>Post User</button> */}
-
-        {Object.keys(user).length === 0 && user.constructor === Object ? (
-          <LoginButton onClick={handleLogin}>
-            <span style={{ padding: "7px" }}>
-              <IoPersonCircleOutline color="#3EA6FF" size={25} />
-            </span>
-            LOGG PÅ
-          </LoginButton>
-        ) : (
-          <>
-            {console.log(user.photoURL)}
-            <ProfilePic src={user.photoURL} alt="PP" />
-            <button onClick={handleLogout}>Sign Out</button>
-          </>
-        )}
       </Div3>
       <Filter />
     </NavContainer>
