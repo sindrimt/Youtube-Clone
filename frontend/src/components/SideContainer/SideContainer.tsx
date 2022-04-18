@@ -31,6 +31,7 @@ import "./sidecontainer.css";
 
 const SideContainer = () => {
   const [expand, setExpand] = useState<boolean>(true);
+
   const navigate = useNavigate();
 
   const subs = useSelector((state: State) => state.subs);
@@ -112,6 +113,7 @@ const SideContainer = () => {
           </SubscribedOuter2>
 
           <Line />
+          {/* If the user is logged in => show subscriptions, else not */}
           {Object.keys(subs).length === 0 && subs.constructor === Object ? (
             <span style={{ color: "white" }}>LOGG PÅ</span>
           ) : (

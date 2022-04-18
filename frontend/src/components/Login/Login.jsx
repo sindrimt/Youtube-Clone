@@ -50,6 +50,7 @@ export const Login = () => {
     return window.gapi.client.youtube.subscriptions
       .list({
         part: ["snippet"],
+        maxResults: 10,
         mine: true,
       })
       .then(
@@ -77,6 +78,7 @@ export const Login = () => {
     // logs out by emptying google user object and dispatching the user object to an empty object
     window.gapi.auth2.getAuthInstance().then((res) => console.log(res));
     dispatch(setUser({}));
+    dispatch(setSubscriptions({}));
   };
 
   return (
