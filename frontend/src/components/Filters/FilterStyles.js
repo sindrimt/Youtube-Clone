@@ -5,7 +5,7 @@ export const FilterContainer = styled.div`
   align-items: center;
   top: 55px;
   position: absolute;
-  width: 83vw;
+  width: 90%;
   height: 57px;
   background-color: rgba(33, 33, 33, 0.98);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
