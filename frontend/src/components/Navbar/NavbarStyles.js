@@ -21,9 +21,9 @@ export const Div2 = styled.div`
 export const Div3 = styled.div`
   grid-area: 1 / 5 / 2 / 5;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 5px;
 `;
 
 export const ProfilePic = styled.img`
