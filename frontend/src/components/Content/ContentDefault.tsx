@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LoadingBar from "react-top-loading-bar";
 
 import Card from "../Card/Card";
@@ -13,6 +13,38 @@ const ContentDefault: React.FC = () => {
   const [isLoading, setIsLoading] = useState<Boolean>(true);
   const [videoResult, setVideoResult] = useState<any[]>();
   const [profileThumbnails, setProfileThumbnails] = useState<any[]>([]);
+
+  const ref: any = useRef(null);
+  const [height, setHeight] = useState(0);
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScrollPosition(position);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  /*   useEffect(() => {
+    setHeight(ref.current.clientHeight);
+  }, []); */
+
+  useEffect(() => {
+    if (isLoading) return;
+    setHeight(ref.current.clientHeight);
+  }, [scrollPosition]);
+
+  // When scroll passes all the content
+  if (scrollPosition + window.innerHeight + 30 > height) {
+    console.log("MATCH MATCH MATCH MATCH");
+  }
 
   const [progress, setProgress] = useState(0);
 
@@ -113,7 +145,7 @@ const ContentDefault: React.FC = () => {
     <>
       <LoadingBar color="#f11946" progress={progress} onLoaderFinished={() => setProgress(0)} />
       <Outer>
-        <GridContainer>
+        <GridContainer ref={ref}>
           {filteredArray?.map(({ items }, index) => {
             // Checks if a maxres image exists
             // If it does: set maxres, else set highres

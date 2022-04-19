@@ -46,14 +46,18 @@ const SideContainer = () => {
   const [progress, setProgress] = useState(0);
   const [width, setWidth] = useState(window.innerWidth);
 
+  //console.log(scrollPosition);
+
   // Gets the window size
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
+
     window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  });
+  }, [width]);
 
   const handleClick = () => {
     setExpand(!expand);
@@ -63,7 +67,6 @@ const SideContainer = () => {
     setProgress(progress + 100);
     navigate("/");
   };
-
   const firstSeven: Array<string> = [];
   const lastSubs: Array<string> = [];
 
