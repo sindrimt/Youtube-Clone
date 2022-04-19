@@ -23,7 +23,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 import { RiCompass3Line, RiYoutubeFill, RiYoutubeLine, RiVideoLine } from "react-icons/ri";
 import { MdOutlineVideoLibrary } from "react-icons/md";
-import { BsClockHistory, BsClock, BsChevronDown } from "react-icons/bs";
+import { BsClockHistory, BsClock, BsChevronDown, BsChevronUp } from "react-icons/bs";
 import { BiLike } from "react-icons/bi";
 
 import logo from "../../assets/ytlogotr.png";
@@ -31,6 +31,7 @@ import "./sidecontainer.css";
 
 const SideContainer = () => {
   const [expand, setExpand] = useState<boolean>(true);
+  const [showMoreSubs, setShowMoreSubs] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -62,6 +63,23 @@ const SideContainer = () => {
     setProgress(progress + 100);
     navigate("/");
   };
+
+  const firstSeven: Array<string> = [];
+  const lastSubs: Array<string> = [];
+
+  // Fills two arrays with subscriptions
+  // The first with the first 7 (initially displayed), and the last with the rest
+
+  if (Object.keys(subs).length > 0) {
+    for (let i = 0; i < 7; i++) {
+      firstSeven.push(subs.result.items[i]);
+    }
+    console.log(firstSeven);
+
+    for (let i = 0; i < subs.result.items.length; i++) {
+      lastSubs.push(subs.result.items[i]);
+    }
+  }
 
   return (
     <>
@@ -118,21 +136,48 @@ const SideContainer = () => {
             <span style={{ color: "white" }}>LOGG PÅ</span>
           ) : (
             <>
-              {console.log(subs)}
-
               <SubscribedOuter3>
                 <Subscribed>
                   <span className="abbonomenter">ABBONOMENTER</span>
                 </Subscribed>
-
-                {subs.result.items?.map((sub: any, index: number) => {
-                  return (
-                    <Subscribed key={index}>
-                      <SubProfilePicture src={sub.snippet.thumbnails.high.url} />
-                      <span className="textSpanSub">{sub.snippet.title}</span>
-                    </Subscribed>
-                  );
-                })}
+                {/* 
+                  If view more is clicked show all subscriptions 
+                  Else, only the first 7
+                */}
+                {showMoreSubs
+                  ? lastSubs?.map((sub: any, index: number) => {
+                      return (
+                        <Subscribed key={index}>
+                          <SubProfilePicture src={sub.snippet.thumbnails.high.url} />
+                          <span className="textSpanSub">{sub.snippet.title}</span>
+                        </Subscribed>
+                      );
+                    })
+                  : firstSeven?.map((sub: any, index: number) => {
+                      return (
+                        <Subscribed key={index}>
+                          <SubProfilePicture src={sub.snippet.thumbnails.high.url} />
+                          <span className="textSpanSub">{sub.snippet.title}</span>
+                        </Subscribed>
+                      );
+                    })}
+                {/* 
+                  Show less if button show more button is clicked'
+                  Show more else
+                */}
+                <Subscribed className="showSubs" onClick={() => setShowMoreSubs(!showMoreSubs)}>
+                  {showMoreSubs ? (
+                    <>
+                      <BsChevronUp color="white" size={15} />
+                      <span className="textSpanArrow">{"Vis færre"}</span>
+                    </>
+                  ) : (
+                    <>
+                      <BsChevronDown color="white" size={15} />
+                      <span className="textSpanArrow">{`Vis ${lastSubs.length - 7} til`}</span>
+                    </>
+                  )}
+                </Subscribed>
               </SubscribedOuter3>
             </>
           )}
