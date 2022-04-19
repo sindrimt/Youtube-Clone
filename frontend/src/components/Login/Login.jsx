@@ -50,7 +50,7 @@ export const Login = () => {
     return window.gapi.client.youtube.subscriptions
       .list({
         part: ["snippet"],
-        maxResults: 10,
+        maxResults: 999,
         mine: true,
       })
       .then(
