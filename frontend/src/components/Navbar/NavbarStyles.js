@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavContainer = styled.div`
   position: fixed;
-  width: 100vw;
+  width: 100%;
   height: 55px;
   background-color: rgba(33, 33, 33, 0.98);
   display: grid;
@@ -45,7 +45,6 @@ export const LoginButton = styled.button`
   background-color: transparent;
   border-radius: 1px;
   border: 1px solid #3ea6ff;
-  margin-right: 10px;
   &:hover {
     cursor: pointer;
   }

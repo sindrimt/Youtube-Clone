@@ -14,6 +14,9 @@ export const Outer = styled.div`
   padding-left: 260px;
   padding-right: 10px;
 
+  @media (min-width: 1530px) {
+    width: 100%;
+  }
   @media (max-width: 1330px) {
     padding-left: 85px;
   }
