@@ -15,9 +15,11 @@ import {
   ProfilePicture,
   ProfileName,
   Duration,
+  Description,
 } from "./SearchCardStyles";
 
 import "./SearchCardStyles";
+import SearchFilter from "../Filters/SearchFilter";
 
 type Props = {
   title: string;
@@ -28,9 +30,10 @@ type Props = {
   time: string | any;
   views: number | any;
   duration: any;
+  description: string;
 };
 
-const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, duration }: Props) => {
+const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, duration, description }: Props) => {
   // Converts views to a shorter format
   var unitlist = ["", "k", "mill."];
   let sign = Math.sign(views);
@@ -86,7 +89,7 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
       <Outer>
         <ImageContainer>
           <Image src={`https://i.ytimg.com/vi/${imageId}/${imageRes}.jpg`} alt="Image" />
-          <Duration>{duration}</Duration>
+          {/* <Duration>{duration}</Duration> */}
 
           <Information>
             <Title>{title}</Title>
@@ -98,6 +101,8 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
               <ProfilePicture src={profilePicture} />
               <ProfileName>{channel}</ProfileName>
             </Profile>
+
+            <Description>{description.slice(0, 120)}</Description>
           </Information>
         </ImageContainer>
       </Outer>

@@ -9,7 +9,6 @@ export const Outer = styled.div`
 
 export const ImageContainer = styled.div`
   display: flex;
-  width: 100%;
 `;
 export const Information = styled.div`
   gap: 6px;
@@ -56,6 +55,11 @@ export const Views = styled.span`
 `;
 
 export const Upload = styled.span`
+  color: #aaaaaa;
+  font-size: 12px;
+`;
+export const Description = styled.span`
+  margin-top: 10px;
   color: #aaaaaa;
   font-size: 12px;
 `;
