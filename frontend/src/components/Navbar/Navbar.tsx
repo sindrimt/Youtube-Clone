@@ -6,6 +6,7 @@ import Search from "../Search/Search";
 import { Div2, Div3, NavContainer, LoginButton, ProfilePic } from "./NavbarStyles";
 import { CgProfile } from "react-icons/cg";
 import { IoPersonCircleOutline } from "react-icons/io5";
+import { useLocation } from "react-router-dom";
 
 import {
   signInWithGoogle,
@@ -32,6 +33,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const user = useSelector((state: State) => state.user);
+
+  const location = useLocation();
 
   console.log(users);
   //todo DET KAN HENDE USER ER KNYTTET TIL URL OG DERFOR FORURSAKER REFRESH?
@@ -99,7 +102,8 @@ const Navbar = () => {
         <button onClick={handleGetUser}>Get User</button>
         <button onClick={handlePostUser}>Post User</button> */}
       </Div3>
-      <Filter />
+      {/* Does not display filter when searching */}
+      {location.pathname != "/results" ? <Filter /> : ""}
     </NavContainer>
   );
 };
