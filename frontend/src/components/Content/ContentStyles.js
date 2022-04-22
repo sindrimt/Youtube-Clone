@@ -8,6 +8,13 @@ export const GridContainer = styled.div`
   row-gap: 0rem;
   padding-top: 8.1rem;
 `;
+export const GridContainerSearch = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  column-gap: 1rem;
+  padding-top: 8.1rem;
+`;
 
 export const Outer = styled.div`
   float: right;
@@ -61,4 +68,13 @@ export const LoadingOuter = styled.div`
 
 export const ContentGap = styled.div`
   margin-top: 5rem;
+`;
+export const TisseTass = styled.div`
+  z-index: 1999999999999;
+  position: absolute;
+  top: 100px;
+  left: 300px;
+  width: 200px;
+  height: 200px;
+  background-color: red;
 `;

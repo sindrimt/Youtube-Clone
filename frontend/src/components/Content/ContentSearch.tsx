@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import LoadingBar from "react-top-loading-bar";
 
-import Card from "../Card/Card";
-import { GridContainer, Outer } from "./ContentStyles";
+import SearchCard from "../Card/SearchCard";
+import { GridContainer, Outer, GridContainerSearch } from "./ContentStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../state/reducers";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
@@ -114,7 +114,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
     <>
       <LoadingBar color="#f11946" progress={progress} onLoaderFinished={() => setProgress(0)} />
       <Outer>
-        <GridContainer>
+        <GridContainerSearch>
           {filteredArray?.map(({ items }, index) => {
             // Checks if a maxres image exists
             // If it does: set maxres, else set highres
@@ -163,7 +163,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
             const duration = convertTime(videoTime);
 
             return (
-              <Card
+              <SearchCard
                 key={index}
                 title={items[0].snippet.title.slice(0, 50)}
                 imageId={items[0].id}
@@ -176,7 +176,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
               />
             );
           })}
-        </GridContainer>
+        </GridContainerSearch>
       </Outer>
     </>
   );
