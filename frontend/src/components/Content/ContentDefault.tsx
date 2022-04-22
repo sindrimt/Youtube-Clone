@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import LoadingBar from "react-top-loading-bar";
 
 import Card from "../Card/Card";
-import { GridContainer, Outer, LoadingOuter, TisseTass } from "./ContentStyles";
+import { GridContainer, Outer, LoadingOuter } from "./ContentStyles";
 
 import axios from "axios";
 

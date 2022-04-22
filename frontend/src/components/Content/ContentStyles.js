@@ -41,6 +41,32 @@ export const Outer = styled.div`
     padding-left: 60px;
   }
 `;
+export const OuterSearch = styled.div`
+  float: right;
+  width: 100%;
+  padding-left: 283px;
+  padding-right: 10px;
+
+  @media (min-width: 1530px) {
+    width: 100%;
+  }
+  @media (max-width: 1330px) {
+    padding-left: 120px;
+  }
+  @media (max-width: 1000px) {
+    width: 100%;
+    padding-left: 90px;
+  }
+  @media (max-width: 800px) {
+    padding-left: 20px;
+    padding-right: 10px;
+  }
+  @media (max-width: 550px) {
+    width: 100%;
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+`;
 
 export const LoadingOuter = styled.div`
   width: 100%;
@@ -68,13 +94,4 @@ export const LoadingOuter = styled.div`
 
 export const ContentGap = styled.div`
   margin-top: 5rem;
-`;
-export const TisseTass = styled.div`
-  z-index: 1999999999999;
-  position: absolute;
-  top: 100px;
-  left: 300px;
-  width: 200px;
-  height: 200px;
-  background-color: red;
 `;

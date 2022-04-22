@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LoadingBar from "react-top-loading-bar";
 
 import SearchCard from "../Card/SearchCard";
-import { GridContainer, Outer, GridContainerSearch } from "./ContentStyles";
+import { GridContainer, Outer, GridContainerSearch, OuterSearch } from "./ContentStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../../state/reducers";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
@@ -10,6 +10,7 @@ import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
 
 import "./content.css";
+import { Line } from "../Filters/SearchFilterStyles";
 
 interface ContentProps {
   searchTerm?: string;
@@ -113,9 +114,11 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
   return (
     <>
       <LoadingBar color="#f11946" progress={progress} onLoaderFinished={() => setProgress(0)} />
-      <Outer>
+      <OuterSearch>
         <GridContainerSearch>
+          <Line />
           {filteredArray?.map(({ items }, index) => {
+            console.log(items);
             // Checks if a maxres image exists
             // If it does: set maxres, else set highres
             let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "mqdefault";
@@ -173,11 +176,12 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
                 views={items[0].statistics.viewCount}
                 time={items[0].snippet.publishedAt}
                 duration={duration}
+                description={items[0].snippet.description}
               />
             );
           })}
         </GridContainerSearch>
-      </Outer>
+      </OuterSearch>
     </>
   );
 };
