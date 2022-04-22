@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import LoadingBar from "react-top-loading-bar";
 
 import Card from "../Card/Card";
-import { GridContainer, Outer, LoadingOuter } from "./ContentStyles";
+import { GridContainer, Outer, LoadingOuter, TisseTass } from "./ContentStyles";
 
 import axios from "axios";
 
@@ -14,55 +14,21 @@ const ContentDefault: React.FC = () => {
   const [videoResult, setVideoResult] = useState<any[]>();
   const [profileThumbnails, setProfileThumbnails] = useState<any[]>([]);
 
-  const ref: any = useRef(null);
-  const [height, setHeight] = useState(0);
-
-  const [scrollPosition, setScrollPosition] = useState(0);
-
-  const handleScroll = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  /*   useEffect(() => {
-    setHeight(ref.current.clientHeight);
-  }, []); */
-
-  useEffect(() => {
-    if (isLoading) return;
-    setHeight(ref.current.clientHeight);
-  }, [scrollPosition]);
-
-  // When scroll passes all the content
-  if (scrollPosition + window.innerHeight + 30 > height) {
-    console.log("MATCH MATCH MATCH MATCH");
-  }
-
   const [progress, setProgress] = useState(0);
 
   const API_KEY = process.env.REACT_APP_API_KEY;
+  const searchResults = `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&part=snippet&chart=mostPopular&maxResults=20`;
+  const pageTokenUrl = `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&part=snippet&chart=mostPopular&maxResults=20`;
 
   //const amount = useSelector((state: State) => state.bank);
   useEffect(() => {
-    fetchVideoData();
+    fetchVideoData(searchResults);
   }, []);
 
-  const fetchVideoData = () => {
+  const fetchVideoData = (searchResult: string) => {
     // Gives basic information about the video
-    const searchResults = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}
-                           &part=snippet,id&maxResults=20&q=rick&order=viewCount`;
 
-    const searchResults2 = `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&part=snippet&chart=mostPopular&maxResults=20`;
-
-    axios(searchResults2).then((res) => {
+    axios(searchResult).then((res) => {
       //console.log(res);
       const videoTuple: any = new Map();
 
@@ -145,7 +111,7 @@ const ContentDefault: React.FC = () => {
     <>
       <LoadingBar color="#f11946" progress={progress} onLoaderFinished={() => setProgress(0)} />
       <Outer>
-        <GridContainer ref={ref}>
+        <GridContainer>
           {filteredArray?.map(({ items }, index) => {
             // Checks if a maxres image exists
             // If it does: set maxres, else set highres
