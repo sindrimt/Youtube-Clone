@@ -5,7 +5,7 @@ import { changeUrl, setUser, setSubscriptions } from "../../state/actions/users"
 import { LoginButton, ProfilePic } from "./LoginStyles";
 import { IoPersonCircleOutline } from "react-icons/io5";
 
-export const Login = () => {
+export const Login = ({ showInfo = true }) => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user);
@@ -92,9 +92,15 @@ export const Login = () => {
         </LoginButton>
       ) : (
         <>
+          {showInfo ? (
+            <>
+              <ProfilePic src={user.getImageUrl()} alt="PP" />
+              <button onClick={handleLogout}>Sign Out</button>
+            </>
+          ) : (
+            ""
+          )}
           {console.log(user)}
-          <ProfilePic src={user.getImageUrl()} alt="PP" />
-          <button onClick={handleLogout}>Sign Out</button>
         </>
       )}
 

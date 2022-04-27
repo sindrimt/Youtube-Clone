@@ -4,7 +4,8 @@ export const LoginButton = styled.button`
   display: flex;
   align-items: center;
   color: #3ea6ff;
-  width: 110px;
+  padding-left: 5px;
+  width: 120px;
   height: 40px;
   background-color: transparent;
   border-radius: 1px;
