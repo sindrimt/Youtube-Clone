@@ -132,3 +132,20 @@ export const Line = styled.div`
     display: none;
   } */
 `;
+
+export const LoginContainer = styled.div`
+  width: 100%;
+  padding-bottom: 15px;
+`;
+export const LoginText = styled.div`
+  padding: 20px 0px 10px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+`;
+export const LoginButton = styled.div`
+  display: flex;
+  margin-left: 32px;
+`;
