@@ -92,6 +92,10 @@ export const Login = ({ showInfo = true }) => {
         </LoginButton>
       ) : (
         <>
+          {/* 
+          showInfo-Prop decides if the profile picture and sign out button will show or not
+          default is false
+        */}
           {showInfo ? (
             <>
               <ProfilePic src={user.getImageUrl()} alt="PP" />
