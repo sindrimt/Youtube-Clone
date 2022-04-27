@@ -17,6 +17,9 @@ import {
   SubscribedOuter3,
   SubProfilePicture,
   SubscribedSmall,
+  LoginContainer,
+  LoginText,
+  LoginButton,
 } from "./SideContentStyles";
 
 import { AiOutlineMenu } from "react-icons/ai";
@@ -28,6 +31,7 @@ import { BiLike } from "react-icons/bi";
 
 import logo from "../../assets/ytlogotr.png";
 import "./sidecontainer.css";
+import { Login } from "../Login/Login";
 
 const SideContainer = () => {
   const [expand, setExpand] = useState<boolean>(true);
@@ -136,7 +140,15 @@ const SideContainer = () => {
           <Line />
           {/* If the user is logged in => show subscriptions, else not */}
           {Object.keys(subs).length === 0 && subs.constructor === Object ? (
-            <span style={{ color: "white" }}>LOGG PÅ</span>
+            <>
+              <LoginContainer>
+                <LoginText>Logg på for å like videoer, kommentere og abonnere.</LoginText>
+                <LoginButton>
+                  <Login showInfo={false} />
+                </LoginButton>
+              </LoginContainer>
+              <Line />
+            </>
           ) : (
             <>
               <SubscribedOuter3>
