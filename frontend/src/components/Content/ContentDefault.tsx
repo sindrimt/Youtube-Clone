@@ -6,7 +6,6 @@ import { GridContainer, Outer, LoadingOuter } from "./ContentStyles";
 
 import axios from "axios";
 
-import "./content.css";
 import LoadingCard from "../LoadingCard/LoadingCard";
 
 const ContentDefault: React.FC = () => {

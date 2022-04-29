@@ -9,7 +9,6 @@ import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 import axios from "axios";
 
-import "./content.css";
 import { Line } from "../Filters/SearchFilterStyles";
 import SearchFilter from "../Filters/SearchFilter";
 
