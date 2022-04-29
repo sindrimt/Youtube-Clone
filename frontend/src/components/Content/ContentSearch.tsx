@@ -11,6 +11,7 @@ import axios from "axios";
 
 import "./content.css";
 import { Line } from "../Filters/SearchFilterStyles";
+import SearchFilter from "../Filters/SearchFilter";
 
 interface ContentProps {
   searchTerm?: string;
@@ -116,7 +117,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
       <LoadingBar color="#f11946" progress={progress} onLoaderFinished={() => setProgress(0)} />
       <OuterSearch>
         <GridContainerSearch>
-          <Line />
+          <SearchFilter />
           {filteredArray?.map(({ items }, index) => {
             console.log(items);
             // Checks if a maxres image exists
