@@ -17,17 +17,6 @@ import {
 
 import "./LoadingCardStyles";
 
-type Props = {
-  title?: string;
-  imageId?: string | any;
-  channel?: string;
-  imageRes?: string;
-  profilePicture?: string;
-  time?: number;
-  views?: number;
-  duration?: any;
-};
-
 const LoadingCard = () => {
   return (
     <>
