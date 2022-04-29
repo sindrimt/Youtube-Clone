@@ -89,7 +89,7 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
       <Outer>
         <ImageContainer>
           <Image src={`https://i.ytimg.com/vi/${imageId}/${imageRes}.jpg`} alt="Image" />
-          {/* <Duration>{duration}</Duration> */}
+          <Duration>{duration}</Duration>
 
           <Information>
             <Title>{title}</Title>

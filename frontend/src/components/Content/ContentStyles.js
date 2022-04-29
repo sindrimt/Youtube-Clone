@@ -13,7 +13,7 @@ export const GridContainerSearch = styled.div`
   flex-direction: column;
   margin-right: 10px;
   column-gap: 1rem;
-  padding-top: 8.1rem;
+  padding-top: 5.2rem;
 `;
 
 export const Outer = styled.div`

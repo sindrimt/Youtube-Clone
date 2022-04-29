@@ -8,6 +8,7 @@ export const Outer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
+  position: relative;
   display: flex;
 `;
 export const Information = styled.div`
@@ -76,11 +77,11 @@ export const Duration = styled.div`
   align-items: center;
   font-weight: bold;
   justify-content: center;
-  font-size: 10px;
-  padding: 2px 3px;
+  font-size: 11px;
+  padding: 2px 4px;
   height: 15px;
   background-color: rgba(0, 0, 0, 0.7);
-  right: 3px;
-  bottom: 7px;
+  left: 331px;
+  bottom: 3px;
   color: white;
 `;

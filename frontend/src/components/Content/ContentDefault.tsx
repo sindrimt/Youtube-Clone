@@ -19,6 +19,7 @@ const ContentDefault: React.FC = () => {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const searchResults = `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&part=snippet&chart=mostPopular&maxResults=20`;
   const pageTokenUrl = `https://www.googleapis.com/youtube/v3/videos?key=${API_KEY}&part=snippet&chart=mostPopular&maxResults=20`;
+  let nextPageToken: string = "";
 
   //const amount = useSelector((state: State) => state.bank);
   useEffect(() => {
@@ -29,7 +30,8 @@ const ContentDefault: React.FC = () => {
     // Gives basic information about the video
 
     axios(searchResult).then((res) => {
-      //console.log(res);
+      nextPageToken = res.data.nextPageToken;
+      console.log(nextPageToken);
       const videoTuple: any = new Map();
 
       const requests = res.data.items.map((video: any) => {
@@ -54,7 +56,7 @@ const ContentDefault: React.FC = () => {
 
         return (
           axios.get(url).then((res) => {
-            //console.log(res.data);
+            //console.log(res);
             videoTuple.get(video.id)[0] = res.data;
             //console.log(video.id.videoId);
           }),
