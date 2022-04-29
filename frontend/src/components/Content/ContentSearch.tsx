@@ -124,47 +124,6 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
             let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "mqdefault";
             let pp: string = profileThumbnails[index];
 
-            // Youtube videotime duration weird ass format
-            let videoTime = items[0].contentDetails.duration;
-
-            // Converts youtube weird format to good format
-            const convertTime = (dur: string | any) => {
-              if (dur.includes("D")) {
-                return "> 24h";
-              }
-              let match = dur.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
-
-              match = match.slice(1).map(function (x: any) {
-                if (x != null) {
-                  return x.replace(/\D/, "");
-                }
-              });
-
-              const hours = parseInt(match[0]) || 0;
-              const minutes = parseInt(match[1]) || 0;
-              const seconds = parseInt(match[2]) || 0;
-
-              const secs = hours * 3600 + minutes * 60 + seconds;
-
-              if (secs >= 3600) {
-                let shortTime = new Date(secs * 1000).toISOString().substr(11, 8);
-                let shortTimeSplit = shortTime.split(":");
-
-                return `${shortTimeSplit[0].substring(1)}:${shortTimeSplit[1]}:${shortTimeSplit[2]}`;
-              } else {
-                let shortTime = new Date(secs * 1000).toISOString().substr(14, 5);
-                let shortTimeSplit = shortTime.split(":");
-
-                if (parseInt(shortTimeSplit[0]) < 10) {
-                  return `${shortTimeSplit[0].substring(1)}:${shortTimeSplit[1]}`;
-                } else {
-                  return new Date(secs * 1000).toISOString().substr(14, 5);
-                }
-              }
-            };
-
-            const duration = convertTime(videoTime);
-
             return (
               <SearchCard
                 key={index}
@@ -175,7 +134,7 @@ const Content: React.FC<ContentProps> = ({ searchTerm /* useless for now */ }) =
                 profilePicture={pp}
                 views={items[0].statistics.viewCount}
                 time={items[0].snippet.publishedAt}
-                duration={duration}
+                duration={items[0].contentDetails.duration}
                 description={items[0].snippet.description}
               />
             );

@@ -21,7 +21,7 @@ import {
 import "./SearchCardStyles";
 import SearchFilter from "../Filters/SearchFilter";
 
-import { formatTime, formatViews } from "./cardfunctionality";
+import { formatTime, formatViews, convertTime } from "./cardfunctionality";
 
 type Props = {
   title: string;
@@ -41,6 +41,9 @@ const Card = ({ title, imageId, channel, imageRes, profilePicture, views, time, 
 
   // Sets time to formatted time
   time = formatTime(time);
+
+  // Converts weird yt video duration format to a normal format
+  duration = convertTime(duration);
 
   return (
     <>

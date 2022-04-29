@@ -119,7 +119,7 @@ const ContentDefault: React.FC = () => {
             let imageRes: string = items[0].snippet.thumbnails.maxres ? "maxresdefault" : "mqdefault";
             let pp: string = profileThumbnails[index];
 
-            let videoTime = items[0].contentDetails.duration;
+            /* let videoTime = items[0].contentDetails.duration;
 
             const convertTime = (dur: string | any) => {
               if (dur.includes("D")) {
@@ -156,7 +156,7 @@ const ContentDefault: React.FC = () => {
               }
             };
 
-            const duration = convertTime(videoTime);
+            const duration = convertTime(videoTime); */
 
             //console.log(items);
             return (
@@ -169,7 +169,7 @@ const ContentDefault: React.FC = () => {
                 profilePicture={pp}
                 views={items[0].statistics.viewCount}
                 time={items[0].snippet.publishedAt}
-                duration={duration}
+                duration={items[0].contentDetails.duration}
               />
             );
           })}
