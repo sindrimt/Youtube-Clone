@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Sidebar = styled.div`
   margin-top: 55px;
-  height: 94%;
+  height: calc(100% - 55px);
   width: 240px;
   position: fixed;
   overflow: hidden;
