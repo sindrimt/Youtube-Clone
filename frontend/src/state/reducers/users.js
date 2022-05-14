@@ -41,3 +41,12 @@ export const subs = (subs = {}, action) => {
       return subs;
   }
 };
+
+export const expand = (expand = "false", action) => {
+  switch (action.type) {
+    case "SET_EXPAND":
+      return action.payload;
+    default:
+      return expand;
+  }
+};
