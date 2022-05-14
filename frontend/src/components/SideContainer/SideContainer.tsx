@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setSubscriptions } from "../../state/actions/users";
+import { setSubscriptions, setExpand } from "../../state/actions/users";
 import { State } from "../../state/reducers";
 
 import {
@@ -37,9 +37,15 @@ const SideContainer = () => {
   const [expand, setExpand] = useState<boolean>(true);
   const [showMoreSubs, setShowMoreSubs] = useState<boolean>(false);
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const subs = useSelector((state: State) => state.subs);
+
+  const expandSidebar = useSelector((state: State) => state.expandSidebar);
+  //todo dispatch(setExpand(true));
+
+  console.log("Sidebar expand =  " + expandSidebar);
 
   //todo SUBSCRIPTION API URL
   //todo ==============================
@@ -99,6 +105,8 @@ const SideContainer = () => {
 
       {expand && width > 1330 ? (
         <Sidebar>
+          {/* <button onClick={() => console.log("cfd")}>Click me</button> */}
+
           <SubscribedOuter>
             <Subscribed>
               <BsFillHouseDoorFill color="white" size={21} /> <span className="textSpan">Startside</span>
