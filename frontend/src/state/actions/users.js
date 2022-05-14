@@ -45,3 +45,12 @@ export const setSubscriptions = (subs) => async (dispatch) => {
     console.log(error.message);
   }
 };
+
+export const setExpand = (expand) => async (dispatch) => {
+  try {
+    const action = { type: "SET_EXPAND", payload: expand };
+    dispatch(action);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
