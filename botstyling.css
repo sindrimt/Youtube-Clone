@@ -113,8 +113,10 @@ a {
 }
 
 .bpw-composer {
-    background-color: #000000;
-    border-top: 1px solid #4b4b4b;
+  padding: 0; /* Remove any padding */
+  position: relative; /* Set the position to relative */
+  outline: none; /* Remove any outline */
+  border: none; /* Remove any border */
 }
 
 .bpw-chat-container::-webkit-scrollbar {
