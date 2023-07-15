@@ -1,22 +1,21 @@
-
 html {
-    font-size: 6px;
+  font-size: 16px;
 }
 
-.generated {
+  .generated {
     color: #ffffff;
-}
+  }
 
-#input-message {
+  #input-message {
     color: #ffffff;
-}
+  }
 
-.bpw-new-messages-indicator {
+  .bpw-new-messages-indicator{
     background-color: #4b4b4b;
     color: #ffffff;
-}
-
-.bpw-header-container {
+  }
+  
+  .bpw-header-container {
     margin: 10px 10px 0px 10px;
     background: #252525;
     border-radius: 10px;
@@ -24,35 +23,35 @@ html {
     overflow: hidden;
 }
 
-.bpw-typing-bubble {
-    background: #ffffff;
+.bpw-typing-bubble{
+  background: #ffffff;
 }
 
-.bpw-chat-bubble-content {
+  .bpw-chat-bubble-content {
     background-color: #4b4b4b;
     border-radius: 6.6px;
     border: 1px transparent;
-}
-.bpw-header-container {
+  }
+  .bpw-header-container {
     border: 1px;
     border-radius: 22px;
-}
-.bpw-date-container,
-.bpw-header-name,
-.bpw-header-subtitle {
+  }
+  .bpw-date-container,
+  .bpw-header-name,
+  .bpw-header-subtitle {
     color: #ffffff;
-}
-
-.bpw-layout {
-    width: 360px !important;
+  }
+  
+  .bpw-layout {
+    width: 340px !important;
     border: 1px;
-    height: 85vh;
+    height: 80vh;
     border-radius: 22px;
-    right: 10%;
-    bottom: 5%;
-}
+    right: 6%;
+    bottom: 1%;
+  }
 
-@media screen and (max-device-width: 767px) {
+  @media screen and (max-device-width: 767px) {
     .bpw-layout {
         width: 100% !important;
         height: 100%;
@@ -62,95 +61,93 @@ html {
     }
 }
 
-.bpw-header-icon,
-.bpw-header-icon svg,
-.bpw-header-icon svg path {
+  .bpw-header-icon,
+  .bpw-header-icon svg,
+  .bpw-header-icon svg path {
     fill: #ffffff !important;
-}
-.bpw-header-container {
+  }
+  .bpw-header-container {
     color: #252525;
-}
+  }
 
-#input-message::placeholder {
-    color: #ffffff;
-}
+  #input-message::placeholder {
+    color: #ffffff; 
+  }
 
-.bpw-keyboard-single-choice {
+  .bpw-keyboard-single-choice{
     background-color: #000000;
     border: none;
-}
-.bpw-button,
-.bpw-button-alt {
+  }
+  .bpw-button, .bpw-button-alt{
     background-color: #323232;
     color: #ffffff;
-}
-.bpw-button {
+  }
+  .bpw-button {
     border-radius: 22px;
-    border: none;
-}
-.bpw-button:hover,
-.bpw-button-alt:hover {
+    border:none;
+  }
+  .bpw-button:hover, .bpw-button-alt:hover{
     background-color: #4b4b4b;
     color: #ffffff;
-}
+  }
 
-a {
+  a{
     color: #ffffff;
     text-decoration: underline;
-}
+  }
 
-.bpw-chat-container {
+
+  .bpw-chat-container {
     background-color: #000000;
-}
+  }
 
-.bpw-from-bot .bpw-chat-bubble .bpw-chat-bubble-content {
+  .bpw-from-bot .bpw-chat-bubble .bpw-chat-bubble-content {
     background-color: #4b4b4b;
     color: #ffffff;
-}
+  }
 
-.bpw-from-user .bpw-chat-bubble .bpw-chat-bubble-content {
+  .bpw-from-user .bpw-chat-bubble .bpw-chat-bubble-content {
     background-color: #c129bb;
     color: #ffffff;
-}
+  }
 
-.bpw-composer {
-  padding: 0; /* Remove any padding */
-  position: relative; /* Set the position to relative */
-  outline: none; /* Remove any outline */
-  border: none; /* Remove any border */
-}
+  .bpw-composer {
+    background-color: #000000;
+    border-top: 1px solid #4b4b4b;
+  }
 
-.bpw-chat-container::-webkit-scrollbar {
+  .bpw-chat-container::-webkit-scrollbar {
     width: 10px;
     background-color: #000000;
-}
+  }
 
-.bpw-chat-container::-webkit-scrollbar-thumb {
+  .bpw-chat-container::-webkit-scrollbar-thumb {
     background-color: #000000;
-}
+  }
 
-.bpw-bot-avatar img,
-.bpw-bot-avatar svg {
+  .bpw-bot-avatar img,
+  .bpw-bot-avatar svg {
     background: #000000;
     background-size: cover;
     border: 3px solid #ffffff;
-}
+  }
 
-::-webkit-scrollbar {
+  ::-webkit-scrollbar{
     width: 0.5rem;
-}
+  }
 
-::-webkit-scrollbar-track {
-    background-color: transparent;
-}
+  ::-webkit-scrollbar-track{
+    background-color:transparent;
+  }
 
-::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border-radius: 1rem;
+  ::-webkit-scrollbar-thumb{
+    background-color:#000000;
+    border-radius:1rem;
     border: 0.5rem solid transparent;
-}
 
-.bpw-floating-button i svg path {
+  }
+
+  .bpw-floating-button i svg path {
     fill: #ffffff;
 }
 
@@ -159,61 +156,62 @@ a {
     border-radius: 52px;
 }
 
-.bpw-chat-container {
+
+  .bpw-chat-container {
     scrollbar-width: thin;
     scrollbar-color: #4b4b4b #000000;
     border: none;
-}
+  }
 
-.bpw-chat-container::-moz-scrollbar {
+  .bpw-chat-container::-moz-scrollbar {
     width: 10px;
-    border: none;
-}
+    border:none;
+  }
 
-.bpw-chat-container::-moz-scrollbar-track {
-    background-color: transparent;
-    border: none;
-}
+  .bpw-chat-container::-moz-scrollbar-track {
+    background-color:transparent;
+    border:none;
+  }
 
-.bpw-chat-container::-moz-scrollbar-thumb {
-    background-color: #000000;
-    border: none;
-}
+  .bpw-chat-container::-moz-scrollbar-thumb {
+    background-color:#000000;
+    border:none;
+  }
 
-.bpw-powered {
+  .bpw-powered {
     text-align: center;
     padding: 10px;
     color: #ffffff;
-    background: #000000;
+    background:  #000000;
     font-size: 16px;
     border-top: none;
     border-bottom-right-radius: 22px;
     border-bottom-left-radius: 22px;
-}
+  }
 
-.bpw-powered a {
+  .bpw-powered a {
     color: #ffffff;
     text-decoration: none;
-}
+  }
 
-.bpw-powered a:hover {
+  .bpw-powered a:hover {
     text-decoration: underline;
-}
+  }
 
-.bpw-send-button:disabled,
-.bpw-send-button:disabled:hover {
+  .bpw-send-button:disabled,
+  .bpw-send-button:disabled:hover {
     opacity: 0.4;
     background-color: var(--theme-primary);
     cursor: default;
-}
+  }
 
-.bpw-send-buttons {
+  .bpw-send-buttons {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
+  }
 
-.bpw-send-button {
+  .bpw-send-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -224,202 +222,12 @@ a {
     height: 24px;
     color: transparent;
     cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2217%22%20height%3D%2220%22%20viewBox%3D%220%200%2017%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.77152%201.04207L15.5347%209.13807C16.192%209.52472%2016.192%2010.4753%2015.5347%2010.8619L8.5%2015L1.70485%2018.9971C0.998111%2019.4129%200.118918%2018.8481%200.203121%2018.0325L0.811331%2012.1412C0.85993%2011.6705%201.23186%2011.2983%201.70256%2011.2493L8.21533%2010.5717C9.32302%2010.4565%209.44138%208.88961%208.36357%208.60928L1.54478%206.83574C1.15164%206.73349%200.859426%206.40357%200.805392%206.00096L0.27339%202.03702C0.162447%201.21039%201.05263%200.619195%201.77152%201.04207Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A") !important;
+    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2217%22%20height%3D%2220%22%20viewBox%3D%220%200%2017%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.77152%201.04207L15.5347%209.13807C16.192%209.52472%2016.192%2010.4753%2015.5347%2010.8619L8.5%2015L1.70485%2018.9971C0.998111%2019.4129%200.118918%2018.8481%200.203121%2018.0325L0.811331%2012.1412C0.85993%2011.6705%201.23186%2011.2983%201.70256%2011.2493L8.21533%2010.5717C9.32302%2010.4565%209.44138%208.88961%208.36357%208.60928L1.54478%206.83574C1.15164%206.73349%200.859426%206.40357%200.805392%206.00096L0.27339%202.03702C0.162447%201.21039%201.05263%200.619195%201.77152%201.04207Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A') !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     transition: background-color 0.2s;
-}
+  }
 
-.bpw-send-button:not(:disabled):hover {
+  .bpw-send-button:not(:disabled):hover {
     background-color: var(--theme-primary-hover);
-}
-
-.bpw-floating-button {
-    background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2217%22%20height%3D%2220%22%20viewBox%3D%220%200%2017%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.77152%201.04207L15.5347%209.13807C16.192%209.52472%2016.192%2010.4753%2015.5347%2010.8619L8.5%2015L1.70485%2018.9971C0.998111%2019.4129%200.118918%2018.8481%200.203121%2018.0325L0.811331%2012.1412C0.85993%2011.6705%201.23186%2011.2983%201.70256%2011.2493L8.21533%2010.5717C9.32302%2010.4565%209.44138%208.88961%208.36357%208.60928L1.54478%206.83574C1.15164%206.73349%200.859426%206.40357%200.805392%206.00096L0.27339%202.03702C0.162447%201.21039%201.05263%200.619195%201.77152%201.04207Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A") !important;
-}
-
-
-/* Style for the composer section */
-.bpw-composer {
-  padding: 0; /* Remove any padding */
-  position: relative; /* Set the position to relative */
-  outline: none; /* Remove any outline */
-  border: none; /* Remove any border */
-}
- 
-/* Style for the composer inner section */
-.bpw-composer-inner {
-  padding: 0; /* Remove any padding */
-  line-height: 0; /* Remove any line-height */
-  position: relative; /* Set the position to relative */
- 
-  /* Set the display property for different browsers */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
- 
-  justify-content: space-between; /* Align items to the start and end of the container */
-}
- 
-/* Style for the composer textarea */
-.bpw-composer-textarea {
-  flex-grow: 2; /* Allow the textarea to grow to fill the available space */
-}
- 
-/* Styles for the textarea element in the composer */
-.bpw-composer textarea {
-  /* Sets the background color to a variable named "--white" */
-  background: var(--white);
-  /* Sets the border to a 1-pixel solid line using a variable named "--zinc-200" */
-  border: 1px solid var(--zinc-200);
-  /* Sets the border radius to a variable named "--spacing-medium" to make the edges rounded */
-  border-radius: var(--spacing-medium);
-  /* Sets the text color to a variable named "--zinc-900" */
-  color: var(--zinc-900);
-  /* Inherits the font family from the parent element */
-  font-family: inherit;
-  /* Sets the font size to 12 pixels */
-  font-size: 12px;
-  /* Sets the height of the textarea to 54 pixels */
-  height: 54px;
-  /* Sets the padding on the top to 19 pixels, and on the right and left to a variable named "--spacing-large" */
-  padding: 19px var(--spacing-large) var(--spacing-large);
-  /* Disables the ability to resize the textarea */
-  resize: none;
-  /* Adds a 0.2-second transition effect to the border when the focus changes */
-  transition: border 0.2s;
-  /* Sets the width of the textarea to 100% */
-  width: 100%;
-  /* Sets the margin on the right side to a variable named "--spacing-small" */
-  margin-right: var(--spacing-small);
-}
- 
-/* Styles for the textarea element when it is in focus */
-.bpw-composer textarea:focus {
-  /* Changes the border color to a variable named "--zinc-300" */
-  border-color: var(--zinc-300);
-}
- 
-/* Styles for the textarea element when it is in right-to-left mode */
-.bpw-composer.rtl .bpw-composer-inner textarea {
-  /* Sets the text direction to right-to-left */
-  direction: rtl;
-}
- 
-/* Styles for the textarea element when it is in left-to-right mode */
-.bpw-composer.ltr .bpw-composer-inner textarea {
-  /* Sets the text direction to left-to-right */
-  direction: ltr;
-}
- 
-/* Styles for the quick reply dropdown menu */
-.bpw-keyboard-quick_reply-dropdown {
-  /* Sets a margin of 0.2rem on the top and bottom and 0.5rem on the right and left */
-  margin: 0.2rem 0.5rem;
-}
- 
-/* Styles for the send button when it is disabled */
-.bpw-send-button:disabled,
-.bpw-send-button:disabled:hover {
-  /* Sets the opacity to 0.4 to make the button appear slightly transparent */
-  opacity: 0.4;
-  /* Sets the background color to a variable named "--theme-primary" */
-  background-color: var(--theme-primary);
-  /* Changes the cursor to the default cursor */
-  cursor: default;
-}
- 
-/* Styles for the container holding the send buttons */
-.bpw-send-buttons {
-  /* Sets the display mode to flex and the direction to horizontal */
-  display: flex;
-  flex-direction: row;
-  /* Aligns the items to the center */
-  align-items: center;
-}
-/* This is the CSS style for the button that sends a message */
- 
-.bpw-send-button {
-  display: flex; /* Set the button to be arranged using flexible layout */
-  justify-content: center; /* Center the button's content horizontally */
-  align-items: center; /* Center the button's content vertically */
-  border-radius: var(
-    --spacing-medium
-  ); /* Make the corners of the button slightly rounded */
-  background-color: var(
-    --theme-primary
-  ); /* Give the button a primary color background */
-  padding: 20px; /* Add some extra space around the button's content */
-  width: 24px; /* Set the button's width to be 24 pixels */
-  height: 24px; /* Set the button's height to be 24 pixels */
-  color: transparent; /* Hide any text that might appear inside the button */
-  cursor: pointer; /* Show the pointer cursor when the button is hovered over */
-  background-image: url(./button.png) !important; /* Add an image to the button */
-  background-repeat: no-repeat !important; /* Don't repeat the image */
-  background-position: center !important; /* Center the image inside the button */
-  transition: background-color 0.2s; /* Make the button's background color change smoothly over a short period of time */
-}
- 
-/* This is the CSS style for the button that sends a message when it's not disabled and is being hovered over */
- 
-.bpw-send-button:not(:disabled):hover {
-  background-color: var(
-    --theme-primary-hover
-  ); /* Change the button's background color to a different color when it's being hovered over */
-}
- 
-/* This is the CSS style for the voice recorder */
- 
-.bpw-voice-recorder {
-  display: flex; /* Set the voice recorder to be arranged using flexible layout */
-  flex-direction: row; /* Arrange the voice recorder's content horizontally */
-  align-items: center; /* Center the voice recorder's content vertically */
-}
-
-/* This block of CSS code styles a header icon element */
-.bpw-header-icon {
-  /* Remove border */
-  border: none;
-  /* Remove background color */
-  background: none;
-  /* Remove padding */
-  padding: 0;
-  /* Remove margin */
-  margin: 0;
-  /* Set text color to a variable named shark */
-  color: var(--shark);
-  /* Set line-height to zero */
-  line-height: 0;
-  /* Set left margin to a variable named spacing-large */
-  margin-left: var(--spacing-large);
-  /* Align text to the right */
-  text-align: right;
-  /* Align element vertically in the middle */
-  vertical-align: middle;
-  /* Set cursor to a pointer */
-  cursor: pointer;
-  /* Set fill color to a variable named shark */
-  fill: var(--shark);
-  /* Set width to 16 pixels */
-  width: 24px;
-  /* Set height to 16 pixels */
-  height: 24px;
-  /* Set fill transition duration to 0.3 seconds */
-  transition: fill 0.3s;
-}
- 
-/* Apply the same fill color and fill transition to the icon's SVG and path elements */
-.bpw-header-icon svg,
-.bpw-header-icon svg path {
-  /* Set fill color to a variable named shark */
-  fill: var(--shark);
-  /* Set fill transition duration to 0.3 seconds */
-  transition: fill 0.3s;
-}
- 
-/* When the icon is hovered over, change the fill color to a variable named reef for the icon, SVG and path elements */
-.bpw-header-icon:hover,
-.bpw-header-icon:hover svg,
-.bpw-header-icon:hover svg path {
-  fill: var(--reef);
-}
+  }
